@@ -1,0 +1,3585 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    156534,       3577]
+NotebookOptionsPosition[    150269,       3476]
+NotebookOutlinePosition[    150666,       3492]
+CellTagsIndexPosition[    150623,       3489]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"A", "\[Rule]", "B"}], ",", " ", 
+     RowBox[{"B", "->", "C"}]}], "}"}], ",", 
+   RowBox[{"VertexSize", "->", "0.3"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"A", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"B", "->", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", " ", 
+      RowBox[{"C", "->", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", "LightGray"}], ",", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9419580787544003`*^9, 3.94195812724008*^9}, {
+  3.942504166896432*^9, 3.942504267065308*^9}},
+ CellLabel->
+  "In[1821]:=",ExpressionUUID->"c35292d6-366d-0143-82c4-62513ec3100a"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{$CellContext`A, $CellContext`B, C}, {{{1, 2}, {2, 3}}, Null}, {
+      EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexSize -> {0.3}, VertexStyle -> {
+         GrayLevel[0.85]}, VertexCoordinates -> {{0, 0}, {2, 0}, {4, 0}}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.}, {2., 0.}}, {{2., 0.}, {4., 0.}}}, 0.3]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.3], InsetBox["A", {0., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.3], InsetBox["B", {2., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{4., 0.}, 0.3], InsetBox["C", {4., 0.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.942504183672826*^9, 3.942504238026855*^9}, 
+   3.94250426820221*^9},
+ CellLabel->
+  "Out[1821]=",ExpressionUUID->"3617a793-7e6c-4701-a26e-22ae454b24f9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 44, 10, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943170865272266*^9},
+ CellLabel->
+  "During evaluation of \
+In[44]:=",ExpressionUUID->"a2d4ba0c-3da8-40e2-a670-c0f370d8dafb"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  GraphicsBox[
+   NamespaceBox["NetworkGraphics",
+    DynamicModuleBox[{Typeset`graph = HoldComplete[
+      Graph[{$CellContext`A, $CellContext`B, C}, {{{1, 2}, {2, 3}}, Null}, {
+       VertexLabels -> {Automatic}, 
+        VertexCoordinates -> {{0, 0}, {2, 0}, {4, 0}}}]]}, 
+     TagBox[GraphicsGroupBox[{
+        {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+         ArrowBox[{{{0., 0.}, {2., 0.}}, {{2., 0.}, {4., 0.}}}, 
+          0.03700564971751412]}, 
+        {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+         0.7]}], {DiskBox[{0., 0.}, 0.03700564971751412], 
+          InsetBox["A", 
+           Offset[{2, 2}, {0.03700564971751412, 0.03700564971751412}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.03700564971751412], 
+          InsetBox["B", 
+           Offset[{2, 2}, {2.037005649717514, 0.03700564971751412}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}, {DiskBox[{4., 0.}, 0.03700564971751412], 
+          InsetBox["C", 
+           Offset[{2, 2}, {4.037005649717514, 0.03700564971751412}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}}}],
+      MouseAppearanceTag["NetworkGraphics"]],
+     AllowKernelInitialization->False]],
+   DefaultBaseStyle->"NetworkGraphics",
+   FormatType->TraditionalForm,
+   FrameTicks->None], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.9419581301662273`*^9, 
+  3.9419581301692276`*^9}},ExpressionUUID->"c5b7b68b-507a-604c-9d21-\
+5f6cc2c03827"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"A", ",", "B"}], "}"}], "->", "C"}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"A", ",", "B"}], "}"}], "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"C", "->", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419581644938107`*^9, 3.941958200217785*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"f73d00a7-f45b-464f-a950-f75d390cc7b4"],
+
+Cell[BoxData[
+ RowBox[{
+  GraphicsBox[
+   NamespaceBox["NetworkGraphics",
+    DynamicModuleBox[{Typeset`graph = HoldComplete[
+      Graph[{{$CellContext`A, $CellContext`B}, C}, {{{1, 2}}, Null}, {
+       VertexLabels -> {Automatic}, VertexCoordinates -> {{0, 0}, {2, 0}}}]]}, 
+     TagBox[GraphicsGroupBox[{
+        {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+         ArrowBox[{{0., 0.}, {2., 0.}}, 0.02261146496815286]}, 
+        {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+         0.7]}], {DiskBox[{0., 0.}, 0.02261146496815286], InsetBox[
+           RowBox[{"{", 
+            RowBox[{"A", ",", "B"}], "}"}], 
+           Offset[{2, 2}, {0.02261146496815286, 0.02261146496815286}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.02261146496815286], 
+          InsetBox["C", 
+           Offset[{2, 2}, {2.022611464968153, 0.02261146496815286}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}}}],
+      MouseAppearanceTag["NetworkGraphics"]],
+     AllowKernelInitialization->False]],
+   DefaultBaseStyle->"NetworkGraphics",
+   FormatType->TraditionalForm,
+   FrameTicks->None], "\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.941958204782957*^9, 
+  3.9419582098964157`*^9}},ExpressionUUID->"a22e0a7c-b0b4-d74e-a815-\
+eb4eedad2dd7"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"A", "->", 
+     RowBox[{"{", 
+      RowBox[{"B", ",", "C"}], "}"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"A", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"B", ",", "C"}], "}"}], "->", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.941958221850914*^9, 3.9419582594412403`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"ed0f5d0d-bab6-dc43-bd28-aac2ac64ead0"],
+
+Cell[BoxData[
+ RowBox[{
+  GraphicsBox[
+   NamespaceBox["NetworkGraphics",
+    DynamicModuleBox[{Typeset`graph = HoldComplete[
+      Graph[{$CellContext`A, {$CellContext`B, C}}, {{{1, 2}}, Null}, {
+       VertexLabels -> {Automatic}, VertexCoordinates -> {{0, 0}, {2, 0}}}]]}, 
+     TagBox[GraphicsGroupBox[{
+        {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+         ArrowBox[{{0., 0.}, {2., 0.}}, 0.02261146496815286]}, 
+        {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+         0.7]}], {DiskBox[{0., 0.}, 0.02261146496815286], 
+          InsetBox["A", 
+           Offset[{2, 2}, {0.02261146496815286, 0.02261146496815286}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.02261146496815286], 
+          InsetBox[
+           RowBox[{"{", 
+            RowBox[{"B", ",", "C"}], "}"}], 
+           Offset[{2, 2}, {2.022611464968153, 0.02261146496815286}], 
+           ImageScaled[{0, 0}],
+           BaseStyle->"Graphics"]}}}],
+      MouseAppearanceTag["NetworkGraphics"]],
+     AllowKernelInitialization->False]],
+   DefaultBaseStyle->"NetworkGraphics",
+   FormatType->TraditionalForm,
+   FrameTicks->None], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.9419582632704086`*^9, 
+  3.9419582632743797`*^9}},ExpressionUUID->"699fd1ae-0152-1040-818b-\
+731bff5d5cdb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"A", "->", "B"}], ",", " ", 
+     RowBox[{"B", "->", "C"}], ",", " ", 
+     RowBox[{"A", "->", " ", "\"\<(B, C)\>\""}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "->", "C"}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "->", "B"}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "->", "C"}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "->", "A"}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "->", "B"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"A", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"B", "->", 
+       RowBox[{"{", 
+        RowBox[{"1.5", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"C", "->", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<(B, C)\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{"2.5", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"\"\<(A, B)\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexSize", "->", "0.3"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", "LightGray"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "A"}], "->", "Dashed"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "B"}], "->", "Dashed"}], 
+      ",", " ", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "B"}], "->", "Dashed"}], 
+      ",", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "C"}], "->", "Dashed"}]}],
+      "\[IndentingNewLine]", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", " ", "Center"}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419583127591267`*^9, 3.9419583404132614`*^9}, {
+  3.941958392430952*^9, 3.9419584517126503`*^9}, {3.9419584839324017`*^9, 
+  3.9419586477784863`*^9}, {3.9419586840545864`*^9, 3.9419587441001205`*^9}, {
+  3.941958807973238*^9, 3.941958863147953*^9}, {3.941958915532419*^9, 
+  3.941958960185196*^9}, {3.9419594655921516`*^9, 3.941959486370123*^9}, {
+  3.942504287030149*^9, 3.9425048459072723`*^9}},
+ CellLabel->
+  "In[1848]:=",ExpressionUUID->"859bc2cd-876c-6040-83d7-93047f9098e9"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{$CellContext`A, $CellContext`B, C, "(B, C)", "(A, B)"}, {{{1, 
+       2}, {2, 3}, {1, 4}, {5, 3}, {4, 2}, {4, 3}, {5, 1}, {5, 2}}, Null}, {
+      EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["(B, C)", $CellContext`B] -> 
+         Dashing[{Small, Small}], DirectedEdge["(A, B)", $CellContext`B] -> 
+         Dashing[{Small, Small}], DirectedEdge["(B, C)", C] -> 
+         Dashing[{Small, Small}], DirectedEdge["(A, B)", $CellContext`A] -> 
+         Dashing[{Small, Small}]}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexSize -> {0.3}, VertexStyle -> {
+         GrayLevel[0.85]}, 
+       VertexCoordinates -> {{0, 0}, {1.5, 0}, {4, 0}, {2.5, 1}, {1, -1}}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{0., 0.}, {1.5, 0.}}, 0.16770509831248423`], 
+        ArrowBox[{{0., 0.}, {2.5, 1.}}, 0.16770509831248423`], 
+        ArrowBox[{{1.5, 0.}, {4., 0.}}, 0.16770509831248423`], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{2.5, 1.}, {1.5, 0.}}, 0.16770509831248423`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{2.5, 1.}, {4., 0.}}, 0.16770509831248423`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{1., -1.}, {0., 0.}}, 0.16770509831248423`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{1., -1.}, {1.5, 0.}}, 0.16770509831248423`]}, 
+        ArrowBox[{{1., -1.}, {4., 0.}}, 0.16770509831248423`]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.16770509831248423], InsetBox["A", {0., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{1.5, 0.}, 0.16770509831248423], 
+         InsetBox["B", {1.5, 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{4., 0.}, 0.16770509831248423], 
+         InsetBox["C", {4., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{2.5, 1.}, 0.16770509831248423], 
+         InsetBox["\<\"(B, C)\"\>", {2.5, 1.},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., -1.}, 0.16770509831248423], 
+         InsetBox["\<\"(A, B)\"\>", {1., -1.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{
+  3.941958343935793*^9, {3.941958401578226*^9, 3.941958452540127*^9}, {
+   3.9419584851037483`*^9, 3.94195849656452*^9}, {3.9419585799821186`*^9, 
+   3.9419586035540524`*^9}, 3.9419586486708946`*^9, {3.9419586967769413`*^9, 
+   3.9419587122956257`*^9}, {3.9419588194795704`*^9, 3.94195883428903*^9}, 
+   3.94195886515184*^9, {3.941958923343458*^9, 3.941958931086273*^9}, 
+   3.9419589614077587`*^9, {3.9419594679296417`*^9, 3.9419594873737144`*^9}, {
+   3.942504300546356*^9, 3.942504313238082*^9}, {3.942504363488865*^9, 
+   3.9425043943352633`*^9}, {3.9425044386470947`*^9, 3.942504489699196*^9}, {
+   3.942504528396311*^9, 3.942504550571184*^9}, 3.9425045839264717`*^9, {
+   3.942504648732584*^9, 3.942504846389426*^9}},
+ CellLabel->
+  "Out[1848]=",ExpressionUUID->"8983550a-6676-45f3-ad6a-9b302486d2d3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 45, 11, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943170937628818*^9},
+ CellLabel->
+  "During evaluation of \
+In[45]:=",ExpressionUUID->"1d5d283b-2937-4d90-8083-f0ee9cc4f73a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "->", "2"}], ",", " ", 
+     RowBox[{"2", "->", "3"}], ",", " ", 
+     RowBox[{"1", "->", " ", "4"}], ",", 
+     RowBox[{"5", "->", "3"}], ",", 
+     RowBox[{"4", "->", "2"}], ",", 
+     RowBox[{"4", "->", "3"}], ",", 
+     RowBox[{"5", "->", "1"}], ",", 
+     RowBox[{"5", "->", "2"}], ",", 
+     RowBox[{"4", "->", "1"}], ",", 
+     RowBox[{"3", "->", "5"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"2", "->", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"3", "->", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"4", "->", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "\[IndentingNewLine]", "}"}]}], ",", 
+      RowBox[{"5", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "->", "\"\<A\>\""}], ",", 
+      RowBox[{"2", "->", "\"\<B\>\""}], ",", " ", 
+      RowBox[{"3", "->", "\"\<C\>\""}], ",", 
+      RowBox[{"4", "->", "\"\<(B, C)\>\""}], ",", 
+      RowBox[{"5", "->", "\"\<(A, B)\>\""}]}], "}"}]}], ",", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"4", "->", 
+      RowBox[{"1", "->", "Red"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.94195952671047*^9, 3.941959541929119*^9}, {
+  3.9419595769902935`*^9, 3.941959578108431*^9}, {3.9419596987812233`*^9, 
+  3.9419597248783035`*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"e6716c95-25e1-1841-9662-3e22e3843068"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "\[Rule]", "2"}], ",", 
+     RowBox[{"2", "\[Rule]", "3"}], ",", 
+     RowBox[{"1", "\[Rule]", "4"}], ",", 
+     RowBox[{"5", "\[Rule]", "3"}], ",", 
+     RowBox[{"4", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "3"}], ",", 
+     RowBox[{"5", "\[Rule]", "1"}], ",", 
+     RowBox[{"5", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "1"}], ",", 
+     RowBox[{"3", "\[Rule]", "5"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"2", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"3", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"4", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"5", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "\"\<A\>\""}], ",", 
+      RowBox[{"2", "\[Rule]", "\"\<B\>\""}], ",", 
+      RowBox[{"3", "\[Rule]", "\"\<C\>\""}], ",", 
+      RowBox[{"4", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+      RowBox[{"5", "\[Rule]", "\"\<(A, B)\>\""}]}], "}"}]}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", "dede5"}], "->", "Red"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419597389978504`*^9, 3.9419597560460377`*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"9f9619b2-6888-6848-912f-a0a2d2331d35"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "\[Rule]", "2"}], ",", 
+     RowBox[{"2", "\[Rule]", "3"}], ",", 
+     RowBox[{"1", "\[Rule]", "4"}], ",", 
+     RowBox[{"5", "\[Rule]", "3"}], ",", 
+     RowBox[{"4", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "3"}], ",", 
+     RowBox[{"5", "\[Rule]", "1"}], ",", 
+     RowBox[{"5", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "1"}], ",", 
+     RowBox[{"3", "\[Rule]", "5"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"2", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"3", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"4", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"5", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "\"\<A\>\""}], ",", 
+      RowBox[{"2", "\[Rule]", "\"\<B\>\""}], ",", 
+      RowBox[{"3", "\[Rule]", "\"\<C\>\""}], ",", 
+      RowBox[{"4", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+      RowBox[{"5", "\[Rule]", "\"\<(A, B)\>\""}]}], "}"}]}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "2"}], "->", "Green"}], ",", 
+      RowBox[{
+       RowBox[{"2", "\[DirectedEdge]", "3"}], "->", "Green"}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "3"}], "->", "Green"}], ",", 
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "5"}], "->", "Green"}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", " ", "\[DirectedEdge]", "5"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", " ", 
+      RowBox[{"{", "Thick", "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419597604729996`*^9, 3.9419597982586803`*^9}, {
+  3.941959851521269*^9, 3.9419599975768414`*^9}, {3.9419600347748203`*^9, 
+  3.941960045217043*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"775c02e5-246c-594f-a6ed-de3bb8a3070d"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "\[Rule]", "2"}], ",", 
+     RowBox[{"2", "\[Rule]", "3"}], ",", 
+     RowBox[{"1", "\[Rule]", "4"}], ",", 
+     RowBox[{"5", "\[Rule]", "3"}], ",", 
+     RowBox[{"4", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "3"}], ",", 
+     RowBox[{"5", "\[Rule]", "1"}], ",", 
+     RowBox[{"5", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "1"}], ",", 
+     RowBox[{"3", "\[Rule]", "5"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"2", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"3", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"4", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"5", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "\"\<A\>\""}], ",", 
+      RowBox[{"2", "\[Rule]", "\"\<B\>\""}], ",", 
+      RowBox[{"3", "\[Rule]", "\"\<C\>\""}], ",", 
+      RowBox[{"4", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+      RowBox[{"5", "\[Rule]", "\"\<(A, B)\>\""}]}], "}"}]}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"2", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "4"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", "\[DirectedEdge]", "5"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "1"}], "->", "Black"}], ",", 
+      RowBox[{
+       RowBox[{"3", "\[DirectedEdge]", "2"}], "->", 
+       RowBox[{"Black", 
+        RowBox[{"{", 
+         RowBox[{"Thickness", "[", "Large", "]"}], "}"}]}]}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9419600620943336`*^9, 3.941960062243332*^9}, {
+  3.941960121105297*^9, 3.9419601980814457`*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"c98bd536-1b6e-614a-8254-eae533bafa38"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "\[Rule]", "2"}], ",", 
+     RowBox[{"2", "\[Rule]", "3"}], ",", 
+     RowBox[{"1", "\[Rule]", "4"}], ",", 
+     RowBox[{"5", "\[Rule]", "3"}], ",", 
+     RowBox[{"4", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "3"}], ",", 
+     RowBox[{"5", "\[Rule]", "1"}], ",", 
+     RowBox[{"5", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "1"}], ",", 
+     RowBox[{"3", "\[Rule]", "5"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"2", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"3", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"4", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"5", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "\"\<A\>\""}], ",", 
+      RowBox[{"2", "\[Rule]", "\"\<B\>\""}], ",", 
+      RowBox[{"3", "\[Rule]", "\"\<C\>\""}], ",", 
+      RowBox[{"4", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+      RowBox[{"5", "\[Rule]", "\"\<(A, B)\>\""}]}], "}"}]}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"2", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "4"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", "\[DirectedEdge]", "5"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> GrayLevel[0]|>,
+        "GrayLevelColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> GrayLevel[0]|>,
+        "GrayLevelColorSwatchTemplate"]}], " ", ",", 
+      RowBox[{"{", 
+       RowBox[{"Thickness", "[", "Large", "]"}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9419602073600903`*^9, 3.94196022613311*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"9c81a324-ccb3-1e4b-8502-d0088c1f60ac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "\[Rule]", "2"}], ",", 
+     RowBox[{"2", "\[Rule]", "3"}], ",", 
+     RowBox[{"1", "\[Rule]", "4"}], ",", 
+     RowBox[{"5", "\[Rule]", "3"}], ",", 
+     RowBox[{"4", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "3"}], ",", 
+     RowBox[{"5", "\[Rule]", "1"}], ",", 
+     RowBox[{"5", "\[Rule]", "2"}], ",", 
+     RowBox[{"4", "\[Rule]", "1"}], ",", 
+     RowBox[{"3", "\[Rule]", "5"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"2", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"3", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"4", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"5", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "\[Rule]", "\"\<A\>\""}], ",", 
+        RowBox[{"2", "\[Rule]", "\"\<B\>\""}], ",", 
+        RowBox[{"3", "\[Rule]", "\"\<C\>\""}], ",", 
+        RowBox[{"4", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+        RowBox[{"5", "\[Rule]", "\"\<(A, B)\>\""}]}], "}"}], ",", "Center"}], 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"2", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "4"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", "\[DirectedEdge]", "5"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> GrayLevel[0]|>,
+        "GrayLevelColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> GrayLevel[0]|>,
+        "GrayLevelColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "2"}], "->", "Black"}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "3"}], "->", "Black"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Thickness", "[", "Large", "]"}], "}"}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "1"}], "->", "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "2"}], "->", "Dashed"}], ",", 
+      RowBox[{"{", "Thick", "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419602398522797`*^9, 3.9419602399842606`*^9}, {
+  3.941960272588251*^9, 3.9419603026707172`*^9}, {3.9419603352210865`*^9, 
+  3.9419603505001163`*^9}, {3.941960387163559*^9, 3.9419604258467464`*^9}, {
+  3.941960544498949*^9, 3.941960554013666*^9}, {3.941960584395647*^9, 
+  3.9419605973155575`*^9}, {3.9419610658797207`*^9, 3.941961131542*^9}, {
+  3.9419611634674206`*^9, 3.9419611927512608`*^9}, {3.9419612305638237`*^9, 
+  3.941961231899105*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"e3e4f6ea-fa78-1348-9d68-655222921185"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4, 
+      5}, {{{1, 2}, {2, 3}, {1, 4}, {5, 3}, {4, 2}, {4, 3}, {5, 1}, {5, 2}, {
+       4, 1}, {3, 5}}, Null}, {EdgeStyle -> {{
+          Thickness[Large]}, DirectedEdge[5, 2] -> GrayLevel[0], 
+         DirectedEdge[5, 1] -> GrayLevel[0], DirectedEdge[1, 4] -> 
+         RGBColor[0, 1, 0], DirectedEdge[4, 3] -> GrayLevel[0], 
+         DirectedEdge[4, 1] -> RGBColor[1, 0, 0], DirectedEdge[5, 3] -> 
+         RGBColor[0, 1, 0], DirectedEdge[2, 3] -> RGBColor[0, 1, 0], 
+         DirectedEdge[1, 2] -> RGBColor[0, 1, 0], DirectedEdge[4, 2] -> 
+         GrayLevel[0], DirectedEdge[3, 5] -> RGBColor[1, 0, 0]}, VertexLabels -> {
+         Placed[{1 -> "A", 2 -> "B", 3 -> "C", 4 -> "(B, C)", 5 -> "(A, B)"}, 
+          Center]}, VertexSize -> {0.2}, 
+       VertexCoordinates -> {{0, 0}, {2, 0}, {4, 0}, {3, 1}, {1, -1}}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Thickness[Large], Opacity[0.7], Arrowheads[
+        Medium], 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[{{0., 0.}, {2., 0.}}, 0.14142135623730953`]}, 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {1.3355592528168891`, 
+           0.9933222415493504}, {3., 1.}}], 0.14142135623730953`]}, 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[{{2., 0.}, {4., 0.}}, 0.14142135623730953`]}, 
+        {RGBColor[1, 0, 0], 
+         ArrowBox[
+          BezierCurveBox[{{4., 0.}, {
+           2.6644407471831206`, -0.9933222415493478}, {1., -1.}}], 
+          0.14142135623730953`]}, 
+        {RGBColor[1, 0, 0], 
+         ArrowBox[
+          BezierCurveBox[{{3., 1.}, {1.664440747183118, 
+           0.006677758450654787}, {0., 0.}}], 0.14142135623730953`]}, 
+        {GrayLevel[0], ArrowBox[{{3., 1.}, {2., 0.}}, 0.14142135623730953`]}, 
+        {GrayLevel[0], ArrowBox[{{3., 1.}, {4., 0.}}, 0.14142135623730953`]}, 
+        {GrayLevel[0], ArrowBox[{{1., -1.}, {0., 0.}}, 0.14142135623730953`]}, 
+        {GrayLevel[0], ArrowBox[{{1., -1.}, {2., 0.}}, 0.14142135623730953`]}, 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           2.3355592528168776`, -0.0066777584506548734`}, {4., 0.}}], 
+          0.14142135623730953`]}}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.14142135623730953], InsetBox[
+          RowBox[{"1", "\[Rule]", "\<\"A\"\>"}], {0., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"2", "\[Rule]", "\<\"B\"\>"}], {0., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"3", "\[Rule]", "\<\"C\"\>"}], {0., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"4", "\[Rule]", "\<\"(B, C)\"\>"}], {0., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"5", "\[Rule]", "\<\"(A, B)\"\>"}], {0., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.14142135623730953], 
+         InsetBox[
+          RowBox[{"1", "\[Rule]", "\<\"A\"\>"}], {2., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"2", "\[Rule]", "\<\"B\"\>"}], {2., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"3", "\[Rule]", "\<\"C\"\>"}], {2., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"4", "\[Rule]", "\<\"(B, C)\"\>"}], {2., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"5", "\[Rule]", "\<\"(A, B)\"\>"}], {2., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{4., 0.}, 0.14142135623730953], 
+         InsetBox[
+          RowBox[{"1", "\[Rule]", "\<\"A\"\>"}], {4., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"2", "\[Rule]", "\<\"B\"\>"}], {4., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"3", "\[Rule]", "\<\"C\"\>"}], {4., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"4", "\[Rule]", "\<\"(B, C)\"\>"}], {4., 0.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"5", "\[Rule]", "\<\"(A, B)\"\>"}], {4., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{3., 1.}, 0.14142135623730953], 
+         InsetBox[
+          RowBox[{"1", "\[Rule]", "\<\"A\"\>"}], {3., 1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"2", "\[Rule]", "\<\"B\"\>"}], {3., 1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"3", "\[Rule]", "\<\"C\"\>"}], {3., 1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"4", "\[Rule]", "\<\"(B, C)\"\>"}], {3., 1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"5", "\[Rule]", "\<\"(A, B)\"\>"}], {3., 1.},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., -1.}, 0.14142135623730953], 
+         InsetBox[
+          RowBox[{"1", "\[Rule]", "\<\"A\"\>"}], {1., -1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"2", "\[Rule]", "\<\"B\"\>"}], {1., -1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"3", "\[Rule]", "\<\"C\"\>"}], {1., -1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"4", "\[Rule]", "\<\"(B, C)\"\>"}], {1., -1.},
+          BaseStyle->"Graphics"], InsetBox[
+          RowBox[{"5", "\[Rule]", "\<\"(A, B)\"\>"}], {1., -1.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{
+  3.94196065519866*^9, {3.941961081334936*^9, 3.941961133149145*^9}, {
+   3.9419611860521927`*^9, 3.941961194073126*^9}, 3.9419612354913006`*^9},
+ CellLabel->"Out[74]=",ExpressionUUID->"3fe16d86-9923-404a-926e-409dd6158b7b"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.941960651687292*^9, 
+  3.9419606523013725`*^9}},ExpressionUUID->"316e135e-f070-4f46-af83-\
+00e673e2b96d"],
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[Rule]", "\"\<C\>\""}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<C\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<(B, C)\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"\"\<(A, B)\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"2", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "3"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"1", "\[DirectedEdge]", "4"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"3", "\[DirectedEdge]", "5"}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[1, 0, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "1"}], "\[Rule]", 
+       TemplateBox[<|"color" -> GrayLevel[0]|>,
+        "GrayLevelColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "2"}], "\[Rule]", 
+       TemplateBox[<|"color" -> GrayLevel[0]|>,
+        "GrayLevelColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "2"}], "->", "Black"}], ",", 
+      RowBox[{
+       RowBox[{"4", "\[DirectedEdge]", "3"}], "->", "Black"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Thickness", "[", "Large", "]"}], "}"}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "1"}], "->", "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"5", "\[DirectedEdge]", "2"}], "->", "Dashed"}], ",", 
+      RowBox[{"{", "Thick", "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419612812803535`*^9, 3.941961457878065*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"b05d942a-8e51-dc4b-8610-20dc451873eb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", " ", 
+     RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<(A, B)\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", " ", 
+     RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}]}], "}"}], ",", " ", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<C\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<(B, C)\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"\"\<(A, B)\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "\[Rule]", "0.4"}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<C\>\""}], "\[Rule]", 
+       TemplateBox[<|"color" -> RGBColor[0, 1, 0]|>,
+        "RGBColorSwatchTemplate"]}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<C\>\""}], "->", 
+       "Green"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<(B, C)\>\""}], "->", 
+       "Green"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<C\>\""}], "\[Rule]", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Red"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<(A, B)\>\""}], "->", " ", 
+       "Red"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", "Red"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", "Red"}], 
+      ",", 
+      RowBox[{"Thickness", "[", "Large", "]"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9419614681563396`*^9, 3.94196168110569*^9}, {
+   3.9419617157120724`*^9, 3.9419617536505795`*^9}, {3.941961783751644*^9, 
+   3.941961787639557*^9}, {3.94196183047015*^9, 3.941961882779743*^9}, 
+   3.9419619238021374`*^9, {3.9419619542306175`*^9, 3.9419621362250843`*^9}, {
+   3.9419621721684666`*^9, 3.941962266762171*^9}, {3.9419623465740414`*^9, 
+   3.9419625112666683`*^9}, {3.9419625539539146`*^9, 3.941962763671234*^9}},
+ CellLabel->
+  "In[115]:=",ExpressionUUID->"fb1fb4c7-a942-334e-8b07-dd4f54695400"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "A", "B", "C", "(B, C)", "(A, B)"}, {{{1, 2}, {2, 3}, {1, 4}, {5, 3}, {
+       4, 2}, {4, 3}, {5, 1}, {5, 2}, {4, 1}, {3, 5}, {3, 2}, {2, 1}}, 
+       Null}, {EdgeStyle -> {
+         Thickness[Large], DirectedEdge["C", "(A, B)"] -> RGBColor[1, 0, 0], 
+         DirectedEdge["C", "B"] -> RGBColor[1, 0, 0], DirectedEdge["B", "C"] -> 
+         RGBColor[0, 1, 0], DirectedEdge["(B, C)", "B"] -> 
+         Dashing[{Small, Small}], DirectedEdge["(B, C)", "A"] -> 
+         RGBColor[1, 0, 0], DirectedEdge["(A, B)", "A"] -> 
+         Dashing[{Small, Small}], DirectedEdge["(A, B)", "C"] -> 
+         RGBColor[0, 1, 0], DirectedEdge["A", "B"] -> RGBColor[0, 1, 0], 
+         DirectedEdge["A", "(B, C)"] -> RGBColor[0, 1, 0], 
+         DirectedEdge["(A, B)", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "A"] -> RGBColor[1, 0, 0], 
+         DirectedEdge["(B, C)", "C"] -> Dashing[{Small, Small}]}, 
+       VertexLabels -> {
+         Placed[Automatic, Center]}, VertexSize -> {0.4}, 
+       VertexCoordinates -> {{0, 0}, {2, 0}, {4, 0}, {3, 1}, {1, -1}}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Thickness[Large], Opacity[0.7], Arrowheads[
+        Medium], 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {1.0000000000000004`, 
+           0.328881494366233}, {2., 0.}}], 0.28284271247461906`]}, 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {1.3355592528168891`, 
+           0.9933222415493504}, {3., 1.}}], 0.28284271247461906`]}, 
+        {RGBColor[1, 0, 0], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.0000000000000007`, -0.3288814943662328}, {0., 0.}}], 
+          0.28284271247461906`]}, 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {2.999999999999997, 0.3288814943662322}, {
+           4., 0.}}], 0.28284271247461906`]}, 
+        {RGBColor[1, 0, 0], 
+         ArrowBox[
+          BezierCurveBox[{{4., 0.}, {
+           3.000000000000004, -0.3288814943662327}, {2., 0.}}], 
+          0.28284271247461906`]}, 
+        {RGBColor[1, 0, 0], 
+         ArrowBox[
+          BezierCurveBox[{{4., 0.}, {
+           2.6644407471831206`, -0.9933222415493478}, {1., -1.}}], 
+          0.28284271247461906`]}, 
+        {RGBColor[1, 0, 0], 
+         ArrowBox[
+          BezierCurveBox[{{3., 1.}, {1.664440747183118, 
+           0.006677758450654787}, {0., 0.}}], 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{3., 1.}, {2., 0.}}, 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{3., 1.}, {4., 0.}}, 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{1., -1.}, {0., 0.}}, 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{1., -1.}, {2., 0.}}, 0.28284271247461906`]}, 
+        {RGBColor[0, 1, 0], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           2.3355592528168776`, -0.0066777584506548734`}, {4., 0.}}], 
+          0.28284271247461906`]}}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.28284271247461906], 
+         InsetBox["\<\"A\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.28284271247461906], 
+         InsetBox["\<\"B\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{4., 0.}, 0.28284271247461906], 
+         InsetBox["\<\"C\"\>", {4., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{3., 1.}, 0.28284271247461906], 
+         InsetBox["\<\"(B, C)\"\>", {3., 1.},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., -1.}, 0.28284271247461906], 
+         InsetBox["\<\"(A, B)\"\>", {1., -1.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{
+  3.9419616328063774`*^9, {3.941961683206934*^9, 3.9419617032784176`*^9}, {
+   3.9419617401085587`*^9, 3.9419617544836693`*^9}, 3.941961788277815*^9, {
+   3.941961852845743*^9, 3.941961883983492*^9}, 3.9419619253855743`*^9, {
+   3.9419619708103676`*^9, 3.9419620255218925`*^9}, {3.9419620630639496`*^9, 
+   3.941962071409315*^9}, {3.94196210208428*^9, 3.94196213807423*^9}, {
+   3.9419621878823814`*^9, 3.9419622677338524`*^9}, 3.941962365278103*^9, 
+   3.941962395656309*^9, 3.941962431437544*^9, {3.9419624685071106`*^9, 
+   3.941962523835558*^9}, {3.9419625711440983`*^9, 3.9419627294090424`*^9}, 
+   3.9419627663082695`*^9},
+ CellLabel->
+  "Out[115]=",ExpressionUUID->"b458e98b-22f8-384e-a3d4-a7d3ac896787"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"h", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"A", "\[DirectedEdge]", "B"}], ",", " ", 
+     RowBox[{"B", "\[DirectedEdge]", "C"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"A", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"B", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], ",", " ", 
+      RowBox[{"C", "->", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.942504073539586*^9, 3.94250411703409*^9}},
+ CellLabel->
+  "In[1816]:=",ExpressionUUID->"416bbe4d-a64e-49dd-a9af-f5d45f32b685"],
+
+Cell[BoxData[
+ RowBox[{"h", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"A", "\[DirectedEdge]", "B"}], ",", 
+     RowBox[{"B", "\[DirectedEdge]", "C"}]}], "}"}], ",", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"A", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"B", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"C", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.942504054104682*^9, 3.9425041188700657`*^9}},
+ CellLabel->
+  "Out[1816]=",ExpressionUUID->"8ed615d7-c56c-4036-92fd-89d5aa165195"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Graph", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"A", "\[DirectedEdge]", "B"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"B", "\[DirectedEdge]", "C"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "A"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "B"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "C"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "B"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "C"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "A"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexLabels", "\[Rule]", 
+     RowBox[{"Placed", "[", 
+      RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexSize", "->", "0.7"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"VertexStyle", "->", "LightGray"}], ",", 
+    RowBox[{"VertexLabels", "\[Rule]", 
+     RowBox[{"Placed", "[", 
+      RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexCoordinates", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2"}], "}"}]}], ",", 
+       RowBox[{"\"\<B\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"\"\<C\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"EdgeStyle", "->", 
+     RowBox[{"{", 
+      RowBox[{"Style", ",", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "A"}], "->", "Dotted"}], 
+       ",", 
+       RowBox[{
+        RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "B"}], "->", "Dotted"}], 
+       ",", 
+       RowBox[{
+        RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "A"}], "->", "Dotted"}], 
+       ",", 
+       RowBox[{
+        RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "B"}], "->", 
+        "Dotted"}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.94250209435072*^9, 3.942502094912002*^9}, {
+  3.942502126717718*^9, 3.942502244291588*^9}, {3.942502292407164*^9, 
+  3.942502433004609*^9}, {3.942502472890937*^9, 3.942502674716032*^9}, {
+  3.9425027165682783`*^9, 3.942502738567889*^9}, {3.942502895308573*^9, 
+  3.942502953718877*^9}, {3.942503019752977*^9, 3.9425030692065973`*^9}, {
+  3.942503120762146*^9, 3.94250338264643*^9}, {3.942503511602206*^9, 
+  3.942503512282462*^9}, {3.9425035450704327`*^9, 3.9425035870219727`*^9}, {
+  3.942503642227023*^9, 3.942503710621808*^9}, {3.942503767073514*^9, 
+  3.942503812579926*^9}, {3.942503844049386*^9, 3.94250396960326*^9}},
+ CellLabel->
+  "In[1812]:=",ExpressionUUID->"6bf83739-3ab6-4416-8d8d-bbaa90d50f26"],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{Typeset`sgraph$$ = 
+   Graph[{$CellContext`A, $CellContext`B, C, "(A, B)", "(B, C)"}, {{{1, 2}, {
+     2, 3}, {4, 1}, {4, 2}, {4, 3}, {5, 2}, {5, 3}, {5, 1}}, Null}, {
+    EdgeStyle -> {{
+        Thickness[Large], 
+        GrayLevel[0]}, DirectedEdge["(B, C)", $CellContext`A] -> 
+       Dashing[{0, Small}], DirectedEdge["(A, B)", $CellContext`B] -> 
+       Dashing[{0, Small}], DirectedEdge["(B, C)", $CellContext`B] -> 
+       Dashing[{0, Small}], DirectedEdge["(A, B)", $CellContext`A] -> 
+       Dashing[{0, Small}]}, VertexLabels -> {
+       Placed[Automatic, Center]}, VertexSize -> {0.7}, VertexStyle -> {
+       GrayLevel[0.85]}, 
+     VertexCoordinates -> {"A" -> {1, 2}, "B" -> {1, 0}, "C" -> {2, 0}}}]}, 
+   InterpretationBox[
+    RowBox[{
+     TagBox["Graph",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = True, Typeset`embedState$$ = "Ready"}, 
+      TemplateBox[{
+        PaneSelectorBox[{False -> GridBox[{{
+              PaneBox[
+               ButtonBox[
+                DynamicBox[
+                 FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"], 
+                 ImageSizeCache -> {10.6984921875, {0., 10.6984921875}}], 
+                Appearance -> None, BaseStyle -> {}, 
+                ButtonFunction :> (Typeset`open$$ = True), Evaluator -> 
+                Automatic, Method -> "Preemptive"], 
+               Alignment -> {Center, Center}, ImageSize -> 
+               Dynamic[{
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
+              GraphicsBox[
+               
+               GraphicsComplexBox[{{
+                0.1, -3.31951456589972}, {-0.14816751450286603`, \
+-2.625037331552915}, {0.6310524421714278, -1.3}, {
+                0.9405108616213151, -2.8841601437046225`}, {
+                0.4967448863824806, -2.092358403567382}, {-0.846735323402297, \
+-1.466588600696043}, {0.8846460183439665, -0.5107506168284197}, {
+                1.8939086566530445`, -2.50980168725566}, {
+                1.756629266633539, -3.4622764737192444`}, {
+                2.119361963550152, -2.99}, {-0.5709741939515942, \
+-4.632295267644082}, {
+                0.20977925607671288`, -4.647162049737781}, \
+{-1.0861820131541373`, -4.047493574735101}, {-1.2223073729506904`, \
+-2.2040562174063485`}}, {
+                 Hue[0.6, 0.7, 0.5], 
+                 Opacity[0.7], 
+                 Arrowheads[0.], 
+                 
+                 ArrowBox[{{1, 2}, {1, 4}, {1, 11}, {1, 12}, {1, 13}, {2, 
+                  3}, {2, 4}, {2, 5}, {2, 6}, {2, 14}, {3, 4}, {3, 7}, {4, 
+                  5}, {4, 8}, {4, 9}, {8, 10}, {9, 10}}, 0.0378698213750627], {
+                  Hue[0.6, 0.2, 0.8], 
+                  EdgeForm[{
+                    GrayLevel[0], 
+                    Opacity[0.7]}], 
+                  DiskBox[1, 0.05], 
+                  DiskBox[2, 0.05], 
+                  DiskBox[3, 0.05], 
+                  DiskBox[4, 0.05], 
+                  DiskBox[5, 0.05], 
+                  DiskBox[6, 0.05], 
+                  DiskBox[7, 0.05], 
+                  DiskBox[8, 0.05], 
+                  DiskBox[9, 0.05], 
+                  DiskBox[10, 0.05], 
+                  DiskBox[11, 0.05], 
+                  DiskBox[12, 0.05], 
+                  DiskBox[13, 0.05], 
+                  DiskBox[14, 0.05]}}], AspectRatio -> 1, Background -> 
+               GrayLevel[0.93], Frame -> True, FrameStyle -> Directive[
+                 Opacity[0.5], 
+                 Thickness[Tiny], 
+                 RGBColor[0.368417, 0.506779, 0.709798]], FrameTicks -> None, 
+               ImagePadding -> 0, ImageSize -> 
+               Dynamic[{
+                 Automatic, (3.5 CurrentValue["FontCapHeight"])/
+                  AbsoluteCurrentValue[Magnification]}], 
+               PlotRange -> {{-1.1, 2.4}, {-4.4, -0.7}}], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"Vertex count: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["5", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Edge count: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["8", "SummaryItem"]}]}}, AutoDelete -> False, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+            False, BaselinePosition -> {1, 1}, 
+            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True -> 
+          GridBox[{{
+              PaneBox[
+               ButtonBox[
+                DynamicBox[
+                 FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"], 
+                 ImageSizeCache -> {10.6984921875, {0., 10.6984921875}}], 
+                Appearance -> None, BaseStyle -> {}, 
+                ButtonFunction :> (Typeset`open$$ = False), Evaluator -> 
+                Automatic, Method -> "Preemptive"], 
+               Alignment -> {Center, Center}, ImageSize -> 
+               Dynamic[{
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
+              GraphicsBox[
+               
+               GraphicsComplexBox[{{
+                0.1, -3.31951456589972}, {-0.14816751450286603`, \
+-2.625037331552915}, {0.6310524421714278, -1.3}, {
+                0.9405108616213151, -2.8841601437046225`}, {
+                0.4967448863824806, -2.092358403567382}, {-0.846735323402297, \
+-1.466588600696043}, {0.8846460183439665, -0.5107506168284197}, {
+                1.8939086566530445`, -2.50980168725566}, {
+                1.756629266633539, -3.4622764737192444`}, {
+                2.119361963550152, -2.99}, {-0.5709741939515942, \
+-4.632295267644082}, {
+                0.20977925607671288`, -4.647162049737781}, \
+{-1.0861820131541373`, -4.047493574735101}, {-1.2223073729506904`, \
+-2.2040562174063485`}}, {
+                 Hue[0.6, 0.7, 0.5], 
+                 Opacity[0.7], 
+                 Arrowheads[0.], 
+                 
+                 ArrowBox[{{1, 2}, {1, 4}, {1, 11}, {1, 12}, {1, 13}, {2, 
+                  3}, {2, 4}, {2, 5}, {2, 6}, {2, 14}, {3, 4}, {3, 7}, {4, 
+                  5}, {4, 8}, {4, 9}, {8, 10}, {9, 10}}, 0.0378698213750627], {
+                  Hue[0.6, 0.2, 0.8], 
+                  EdgeForm[{
+                    GrayLevel[0], 
+                    Opacity[0.7]}], 
+                  DiskBox[1, 0.05], 
+                  DiskBox[2, 0.05], 
+                  DiskBox[3, 0.05], 
+                  DiskBox[4, 0.05], 
+                  DiskBox[5, 0.05], 
+                  DiskBox[6, 0.05], 
+                  DiskBox[7, 0.05], 
+                  DiskBox[8, 0.05], 
+                  DiskBox[9, 0.05], 
+                  DiskBox[10, 0.05], 
+                  DiskBox[11, 0.05], 
+                  DiskBox[12, 0.05], 
+                  DiskBox[13, 0.05], 
+                  DiskBox[14, 0.05]}}], AspectRatio -> 1, Background -> 
+               GrayLevel[0.93], Frame -> True, FrameStyle -> Directive[
+                 Opacity[0.5], 
+                 Thickness[Tiny], 
+                 RGBColor[0.368417, 0.506779, 0.709798]], FrameTicks -> None, 
+               ImagePadding -> 0, ImageSize -> 
+               Dynamic[{
+                 Automatic, (3.5 CurrentValue["FontCapHeight"])/
+                  AbsoluteCurrentValue[Magnification]}], 
+               PlotRange -> {{-1.1, 2.4}, {-4.4, -0.7}}], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"Vertex count: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["5", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Edge count: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["8", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Type: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"directed graph\"", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Connected graph: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    DynamicBox[
+                    ToBoxes[
+                    ConnectedGraphQ[Typeset`sgraph$$], StandardForm], 
+                    ImageSizeCache -> {
+                    26.187890624999998`, {0.096484375, 7.64765625}}, 
+                    SynchronousUpdating -> False, TrackedSymbols :> {}], 
+                    "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Acyclic graph: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    DynamicBox[
+                    ToBoxes[
+                    AcyclicGraphQ[Typeset`sgraph$$], StandardForm], 
+                    ImageSizeCache -> {
+                    22.948046875, {0.096484375, 7.327734375}}, 
+                    SynchronousUpdating -> False, TrackedSymbols :> {}], 
+                    "SummaryItem"]}]}}, AutoDelete -> False, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+            False, BaselinePosition -> {1, 1}, 
+            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, 
+         Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+       "SummaryPanel"],
+      DynamicModuleValues:>{}], "]"}],
+    Typeset`sgraph$$,
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False],
+   DynamicModuleValues:>{}],
+  Setting[#, {0}]& ]], "Output",
+ CellChangeTimes->{
+  3.942502097014661*^9, {3.942502141898478*^9, 3.942502181443762*^9}, {
+   3.9425022126182337`*^9, 3.942502246025982*^9}, 3.942502360437481*^9, {
+   3.942502408274102*^9, 3.94250243409276*^9}, {3.9425025269415007`*^9, 
+   3.942502555196671*^9}, 3.9425025902163887`*^9, 3.94250264101066*^9, 
+   3.942502676229533*^9, 3.942502744064662*^9, 3.942502846093457*^9, 
+   3.9425029094796553`*^9, 3.942502946078135*^9, 3.942503043269405*^9, {
+   3.942503109511717*^9, 3.942503203082849*^9}, 3.9425032796442547`*^9, 
+   3.942503320594576*^9, {3.9425033557504063`*^9, 3.942503383679955*^9}, {
+   3.942503513611891*^9, 3.942503589074936*^9}, 3.942503644039567*^9, {
+   3.942503683596958*^9, 3.942503711752962*^9}, 3.942503768779299*^9, 
+   3.942503814868782*^9, {3.942503845537199*^9, 3.9425039705873413`*^9}},
+ CellLabel->
+  "Out[1812]=",ExpressionUUID->"7b82104a-a4fb-4ef4-a5a3-afef1dd95b34"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<(B, C)\>\""}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", " ", 
+     RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<(A, B)\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", " ", 
+     RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}]}], "}"}], ",", " ", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<C\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<(B, C)\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}]}], ",", 
+      RowBox[{"\"\<(A, B)\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]}], ",", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "\[Rule]", "0.4"}], ",", 
+   RowBox[{"VertexStyle", "->", "LightGray"}], ",", 
+   RowBox[{"EdgeStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(A, B)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       StyleBox["Dashed",
+        FontWeight->"Plain"]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<C\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<(A, B)\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<(B, C)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.942501759842924*^9, 3.942501896671954*^9}, {
+  3.9425019325672407`*^9, 3.942502042938538*^9}, {3.942619475687078*^9, 
+  3.942619493995678*^9}, {3.943170995690132*^9, 3.943171070898312*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"c3e56a1e-c8a0-4559-818a-7baf5543799e"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "A", "B", "C", "(B, C)", "(A, B)"}, {{{1, 2}, {2, 3}, {1, 4}, {5, 3}, {
+       4, 2}, {4, 3}, {5, 1}, {5, 2}, {4, 1}, {3, 5}, {3, 2}, {2, 1}}, 
+       Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["C", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(B, C)", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["C", "(A, B)"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(A, B)", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(A, B)", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(B, C)", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(B, C)", "C"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "A"] -> Dashing[{Small, Small}]}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexSize -> {0.4}, VertexStyle -> {
+         GrayLevel[0.85]}, 
+       VertexCoordinates -> {{0, 0}, {2, 0}, {4, 0}, {3, 1}, {1, -1}}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {1.0000000000000004`, 0.328881494366233}, {
+          2., 0.}}], 0.28284271247461906`], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {1.3355592528168891`, 
+          0.9933222415493504}, {3., 1.}}], 0.28284271247461906`], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.0000000000000007`, -0.3288814943662328}, {0., 0.}}], 
+          0.28284271247461906`]}, 
+        ArrowBox[
+         BezierCurveBox[{{2., 0.}, {2.999999999999997, 0.3288814943662322}, {
+          4., 0.}}], 0.28284271247461906`], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{4., 0.}, {
+           3.000000000000004, -0.3288814943662327}, {2., 0.}}], 
+          0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{4., 0.}, {
+           2.6644407471831206`, -0.9933222415493478}, {1., -1.}}], 
+          0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{3., 1.}, {1.664440747183118, 
+           0.006677758450654787}, {0., 0.}}], 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{3., 1.}, {2., 0.}}, 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{3., 1.}, {4., 0.}}, 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{1., -1.}, {0., 0.}}, 0.28284271247461906`]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[{{1., -1.}, {2., 0.}}, 0.28284271247461906`]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., -1.}, {
+          2.3355592528168776`, -0.0066777584506548734`}, {4., 0.}}], 
+         0.28284271247461906`]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.28284271247461906], 
+         InsetBox["\<\"A\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.28284271247461906], 
+         InsetBox["\<\"B\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{4., 0.}, 0.28284271247461906], 
+         InsetBox["\<\"C\"\>", {4., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{3., 1.}, 0.28284271247461906], 
+         InsetBox["\<\"(B, C)\"\>", {3., 1.},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., -1.}, 0.28284271247461906], 
+         InsetBox["\<\"(A, B)\"\>", {1., -1.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{432.97265625, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.9425017100371447`*^9, {3.9425017831181297`*^9, 3.942501809930771*^9}, 
+   3.942501858282937*^9, 3.9425018975498667`*^9, 3.9425019478122177`*^9, {
+   3.9425019897564173`*^9, 3.9425020099832983`*^9}, 3.942502044291223*^9, 
+   3.942619495574716*^9, 3.943171029980393*^9, 3.943171073479041*^9},
+ CellLabel->"Out[47]=",ExpressionUUID->"a14bc19d-f8a7-4eef-a44d-2307ee05abbf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 48, 12, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943171087905353*^9},
+ CellLabel->
+  "During evaluation of \
+In[48]:=",ExpressionUUID->"b76c6cf9-19ec-41cc-81ee-9e09b3bc4830"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 49, 13, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943171130009263*^9},
+ CellLabel->
+  "During evaluation of \
+In[49]:=",ExpressionUUID->"7a4b366d-e528-42f4-a55c-6412446e7073"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Graph", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}]}], "}"}], ",", " ", 
+    RowBox[{"VertexCoordinates", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0.5"}], "}"}]}], ",", 
+       RowBox[{"\"\<B\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "0.5"}]}], "}"}]}], ",", 
+       RowBox[{"\"\<C\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexLabels", "\[Rule]", 
+     RowBox[{"Placed", "[", 
+      RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+    RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"EdgeStyle", "->", 
+     RowBox[{"{", 
+      RowBox[{"Style", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", " ", "Black"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Circle\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexStyle", "->", 
+     RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.942500450776333*^9, 3.942500545177184*^9}},
+ CellLabel->
+  "In[1712]:=",ExpressionUUID->"ed881c1e-990c-447f-9efb-3617d8442ae7"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{"A", "C", "B"}, {{{1, 2}, {3, 2}}, Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}}, GraphLayout -> "SpringEmbedding", 
+       VertexCoordinates -> {{0, 0.5}, {1, 0}, {0, -0.5}}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Circle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.5}, {1., 0.}}, {{0., -0.5}, {1., 0.}}}, 0.1]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.5}, 0.1], InsetBox["\<\"A\"\>", {0., 0.5},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., 0.}, 0.1], 
+         InsetBox["\<\"C\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{0., -0.5}, 0.1], 
+         InsetBox["\<\"B\"\>", {0., -0.5},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.942500458031386*^9, 3.942500546947144*^9}},
+ CellLabel->
+  "Out[1712]=",ExpressionUUID->"56a2c8c8-b60c-41d4-9d08-047f4c02f4a0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 39, 7, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9431694489715557`*^9},
+ CellLabel->
+  "During evaluation of \
+In[39]:=",ExpressionUUID->"1d13ba7c-f05c-4440-81ee-7e53c8ecab9c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}]}], "}"}], ",", " ", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.5"}], "}"}]}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "0.5"}]}], "}"}]}], ",", 
+      RowBox[{"\"\<C\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Circle\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.942500570295232*^9, 3.9425005957922077`*^9}, {
+  3.94316934417635*^9, 3.9431693912833347`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"b4ff77ec-43ab-47fa-b6c6-82baade803be"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{"A", "C", "B"}, {{{1, 2}, {3, 2}, {2, 1}, {2, 3}}, Null}, {
+      EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["C", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["C", "B"] -> Dashing[{Small, Small}]}, GraphLayout -> 
+       "SpringEmbedding", VertexCoordinates -> {{0, 0.5}, {1, 0}, {0, -0.5}}, 
+       VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Circle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.5}, {0.5822203735915605, 
+          0.41444074718311635`}, {1., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.41777962640844163`, 
+           0.08555925281688274}, {0., 0.5}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5822203735915571, -0.41444074718311685`}, {0., -0.5}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{0., -0.5}, {
+          0.4177796264084403, -0.08555925281688506}, {1., 0.}}], 0.1]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.5}, 0.1], InsetBox["\<\"A\"\>", {0., 0.5},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., 0.}, 0.1], 
+         InsetBox["\<\"C\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{0., -0.5}, 0.1], 
+         InsetBox["\<\"B\"\>", {0., -0.5},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{
+  3.942500564084138*^9, 3.942500596690282*^9, {3.9431693699321337`*^9, 
+   3.943169394383746*^9}},
+ CellLabel->"Out[37]=",ExpressionUUID->"1753d970-0a0a-484c-99f8-8c5d85827fdd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 38, 6, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943169400895438*^9},
+ CellLabel->
+  "During evaluation of \
+In[38]:=",ExpressionUUID->"cb094b6e-5a8a-45a9-906d-ebf8ed64faaf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}]}], "}"}], ",", " ", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.5"}], "}"}]}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "0.5"}]}], "}"}]}], ",", 
+      RowBox[{"\"\<C\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Circle\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.94250062216322*^9, 3.942500693922757*^9}, {
+   3.94250074401143*^9, 3.9425007502354527`*^9}, {3.942500839712908*^9, 
+   3.94250085996208*^9}, {3.9425011078400717`*^9, 3.942501108259491*^9}, 
+   3.943169535906975*^9},
+ CellLabel->"In[40]:=",ExpressionUUID->"7b4b9972-cdce-42a7-92c7-885aebbc6094"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "A", "C", "B"}, {{{1, 2}, {3, 2}, {2, 1}, {2, 3}, {1, 3}, {3, 1}}, 
+       Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["C", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["A", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["C", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "A"] -> Dashing[{Small, Small}]}, GraphLayout -> 
+       "SpringEmbedding", VertexCoordinates -> {{0, 0.5}, {1, 0}, {0, -0.5}}, 
+       VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Circle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.5}, {0.5822203735915605, 
+          0.41444074718311635`}, {1., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.5}, {0.16444074718311621`, 0.}, {0., -0.5}}],
+           0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.41777962640844163`, 
+           0.08555925281688274}, {0., 0.5}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5822203735915571, -0.41444074718311685`}, {0., -0.5}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., -0.5}, {-0.16444074718311621`, 0.}, {0., 
+           0.5}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{0., -0.5}, {
+          0.4177796264084403, -0.08555925281688506}, {1., 0.}}], 0.1]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.5}, 0.1], InsetBox["\<\"A\"\>", {0., 0.5},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., 0.}, 0.1], 
+         InsetBox["\<\"C\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{0., -0.5}, 0.1], 
+         InsetBox["\<\"B\"\>", {0., -0.5},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{
+  3.942500614286724*^9, {3.942500710023109*^9, 3.942500764576109*^9}, {
+   3.942500827952256*^9, 3.9425008609160147`*^9}, 3.94250111047508*^9, 
+   3.943169539037611*^9},
+ CellLabel->"Out[40]=",ExpressionUUID->"d907973f-cee7-42a0-a5f5-c78a1c303d28"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 41, 8, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9431695447572308`*^9},
+ CellLabel->
+  "During evaluation of \
+In[41]:=",ExpressionUUID->"4d8fc061-c23d-4f18-bbde-fd67d44764d4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Graph", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<C\>\""}], ",", 
+      RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<C\>\""}], ",", 
+      RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+      RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+      RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+      RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(A; B)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+      RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<(A; B)\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(A; B)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+      RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<(A; B)\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<(B; A)\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<(B; A)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], ",", 
+      RowBox[{"\"\<(B; A)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", " ", 
+      RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<(B; A)\>\""}]}], "}"}], 
+    ",", " ", 
+    RowBox[{"VertexCoordinates", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0.5"}], "}"}]}], ",", 
+       RowBox[{"\"\<B\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "0.5"}]}], "}"}]}], ",", 
+       RowBox[{"\"\<C\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"\"\<(A; B)\>\"", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "0.5"}], ",", " ", "0"}], "}"}]}], ",", 
+       RowBox[{"\"\<(B; A)\>\"", "->", 
+        RowBox[{"{", 
+         RowBox[{"0.5", ",", " ", "0"}], "}"}]}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexLabels", "\[Rule]", 
+     RowBox[{"Placed", "[", 
+      RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+    RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Circle\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexStyle", "->", 
+     RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"EdgeStyle", "->", 
+     RowBox[{"{", 
+      RowBox[{"Style", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+        "Dashed"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+        "Dashed"}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<(A; B)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+        StyleBox["Dashed",
+         FontWeight->"Plain"]}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<(B; A)\>\""}], "->", 
+        "Dashed"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<(B; A)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+        StyleBox["Dashed",
+         FontWeight->"Plain"]}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<(A; B)\>\""}], "->", 
+        "Dashed"}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<(A; B)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+        "Dashed"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<(B; A)\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+        "Dashed"}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<(B; A)\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+        "Dashed"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<A\>\"", "\[DirectedEdge]", "\"\<(B; A)\>\""}], "->", 
+        "Dashed"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<(A; B)\>\""}], "->", 
+        "Dashed"}], ",", 
+       RowBox[{
+        RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<(B; A)\>\""}], "->", 
+        "Dashed"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+        "Dashed"}], ",", 
+       RowBox[{
+        RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+        "Dashed"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.942500894753749*^9, 3.942501186890585*^9}, {
+   3.942501232224184*^9, 3.942501461184174*^9}, 3.942504633940507*^9, {
+   3.942546605714245*^9, 3.9425466321586847`*^9}, {3.942618655737248*^9, 
+   3.942618793655525*^9}, {3.942618835883058*^9, 3.942618969202012*^9}, 
+   3.942619003102786*^9, {3.942619039522312*^9, 3.9426191117208223`*^9}, {
+   3.942619142393579*^9, 3.942619209625434*^9}, {3.942619272848792*^9, 
+   3.94261927340302*^9}, {3.9426193351028147`*^9, 3.94261943114515*^9}, {
+   3.9426195782713747`*^9, 3.942619633448493*^9}, 3.9431675149125853`*^9, {
+   3.9431706603586817`*^9, 3.94317068637915*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"ac4df05e-4074-4700-8c47-4796a51e8642"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "A", "C", "B", "(A; B)", "(B; A)"}, {{{1, 2}, {3, 2}, {2, 1}, {2, 3}, {
+       1, 3}, {3, 1}, {4, 1}, {1, 4}, {4, 3}, {3, 4}, {1, 5}, {5, 1}, {5, 
+       3}, {3, 5}}, Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["C", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(A; B)", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "(A; B)"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "(B; A)"] -> Dashing[{Small, Small}], 
+         DirectedEdge["A", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(B; A)", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(B; A)", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["(A; B)", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["C", "A"] -> Dashing[{Small, Small}], 
+         DirectedEdge["A", "(A; B)"] -> Dashing[{Small, Small}], 
+         DirectedEdge["A", "(B; A)"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "A"] -> Dashing[{Small, Small}]}, GraphLayout -> 
+       "SpringEmbedding", 
+       VertexCoordinates -> {{0, 0.5}, {1, 0}, {0, -0.5}, {-0.5, 0}, {
+         0.5, 0}}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Circle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.5}, {0.5822203735915605, 
+          0.41444074718311635`}, {1., 0.}}], 0.05], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.5}, {0.16444074718311621`, 0.}, {0., -0.5}}],
+           0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.5}, {-0.16777962640844185`, 
+           0.1677796264084416}, {-0.5, 0.}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.5}, {0.33222037359155737`, 
+           0.33222037359155904`}, {0.5, 0.}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.41777962640844163`, 
+           0.08555925281688274}, {0., 0.5}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5822203735915571, -0.41444074718311685`}, {0., -0.5}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., -0.5}, {-0.16444074718311621`, 0.}, {0., 
+           0.5}}], 0.05]}, 
+        ArrowBox[
+         BezierCurveBox[{{0., -0.5}, {
+          0.4177796264084403, -0.08555925281688506}, {1., 0.}}], 0.05], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{
+           0., -0.5}, {-0.33222037359155737`, -0.33222037359155904`}, {-0.5, 
+           0.}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., -0.5}, {
+           0.16777962640844185`, -0.1677796264084416}, {0.5, 0.}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{-0.5, 0.}, {-0.33222037359155904`, 
+           0.33222037359155737`}, {0., 0.5}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{-0.5, 
+           0.}, {-0.1677796264084416, -0.16777962640844185`}, {0., -0.5}}], 
+          0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0.5, 0.}, {0.1677796264084416, 
+           0.16777962640844185`}, {0., 0.5}}], 0.05]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0.5, 0.}, {
+           0.33222037359155904`, -0.33222037359155737`}, {0., -0.5}}], 
+          0.05]}}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.5}, 0.05], InsetBox["\<\"A\"\>", {0., 0.5},
+          BaseStyle->"Graphics"]}, {DiskBox[{1., 0.}, 0.05], 
+         InsetBox["\<\"C\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{0., -0.5}, 0.05], 
+         InsetBox["\<\"B\"\>", {0., -0.5},
+          BaseStyle->"Graphics"]}, {DiskBox[{-0.5, 0.}, 0.05], 
+         InsetBox["\<\"(A; B)\"\>", {-0.5, 0.},
+          BaseStyle->"Graphics"]}, {DiskBox[{0.5, 0.}, 0.05], 
+         InsetBox["\<\"(B; A)\"\>", {0.5, 0.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{446.94921875, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.942500912267418*^9, 3.942500977575436*^9, 3.9425010306071444`*^9, {
+   3.942501078321796*^9, 3.9425011004873943`*^9}, {3.942501142739781*^9, 
+   3.942501158355851*^9}, 3.9425012755255613`*^9, {3.942501312997178*^9, 
+   3.942501339788869*^9}, {3.94250142360849*^9, 3.9425014620677433`*^9}, 
+   3.942546634053721*^9, {3.942618686920374*^9, 3.942618710666328*^9}, {
+   3.942618741630155*^9, 3.9426187945414963`*^9}, 3.942618853478825*^9, 
+   3.942619004355238*^9, {3.9426190545681543`*^9, 3.9426190892984543`*^9}, 
+   3.9426191237096252`*^9, {3.942619192950678*^9, 3.942619210908684*^9}, 
+   3.942619297270546*^9, {3.9426193417055902`*^9, 3.942619362821212*^9}, {
+   3.942619395717868*^9, 3.942619432724859*^9}, 3.9426196032404737`*^9, 
+   3.942619635088956*^9, 3.943167713653996*^9, 3.943170689191678*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"71f18ec1-358a-4087-a51e-f8cd6a1cf6d2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 43, 9, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9431707084891033`*^9},
+ CellLabel->
+  "During evaluation of \
+In[43]:=",ExpressionUUID->"102dacb3-286a-41f1-90b1-59ddcc572df1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Graph", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<B\>\""}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}]}], "}"}], ",", " ", 
+    RowBox[{"VertexCoordinates", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<A\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"\"\<B\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"\"\<C\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexLabels", "\[Rule]", 
+     RowBox[{"Placed", "[", 
+      RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+    RowBox[{"VertexSize", "->", "0.5"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"EdgeStyle", "->", 
+     RowBox[{"{", 
+      RowBox[{"Style", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", " ", "Black"}], "}"}]}], "}"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Rectangle\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"VertexStyle", "->", 
+     RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.941963014091528*^9, 3.941963067777178*^9}, {
+   3.9419631002141705`*^9, 3.9419631008410053`*^9}, {3.9419677330079403`*^9, 
+   3.941967787117277*^9}, {3.9424703354455433`*^9, 3.942470625475143*^9}, {
+   3.942470666347596*^9, 3.942470670204464*^9}, {3.942470758270892*^9, 
+   3.942470780093824*^9}, 3.9424709931713657`*^9, {3.943167525846623*^9, 
+   3.9431675478339453`*^9}, {3.943167605673867*^9, 3.943167608373354*^9}},
+ CellLabel->
+  "In[1458]:=",ExpressionUUID->"48d557fe-edfc-1e47-9e9c-df37fdb92780"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{"A", "B", "C"}, {{{1, 2}, {2, 3}}, Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}}, GraphLayout -> "SpringEmbedding", 
+       VertexCoordinates -> {{0, 0}, {1, 0}, {2, 0}}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Rectangle"}, 
+       VertexSize -> {0.5}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.}, {1., 0.}}, {{1., 0.}, {2., 0.}}}, 0.25]}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {RectangleBox[{-0.264705, -0.1764705}, {0.264705, 0.1764705}],
+          InsetBox["\<\"A\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.735295, -0.1764705}, {1.264705, 0.1764705}], 
+         InsetBox["\<\"B\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{1.735295, -0.1764705}, {2.264705, 0.1764705}], 
+         InsetBox["\<\"C\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{659.2734375, Automatic}]], "Output",
+ CellChangeTimes->{3.942470996069928*^9},
+ CellLabel->
+  "Out[1458]=",ExpressionUUID->"26dcc7dd-42de-46e3-a25a-e8e173100197"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 9, 2, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943167866474634*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"57de7c00-f97e-45b8-8b12-8aa09247cb54"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<A\>\"", "\[Rule]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[Rule]", "\"\<C\>\""}], ",", 
+     RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], ",", 
+     RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}]}], "}"}], ",", " ", 
+   RowBox[{"VertexCoordinates", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<A\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<B\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+      RowBox[{"\"\<C\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "->", "0.5"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<C\>\"", "\[DirectedEdge]", "\"\<B\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<B\>\"", "\[DirectedEdge]", "\"\<A\>\""}], "->", 
+       "Dashed"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Rectangle\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.942470961683406*^9, 3.942471065469531*^9}, {
+  3.943167466235305*^9, 3.943167501228703*^9}, {3.9431676240195923`*^9, 
+  3.943167672588993*^9}, {3.9431677381115437`*^9, 3.94316775621708*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"57deffe0-31f5-4063-9b89-90f94a966eea"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{"A", "B", "C"}, {{{1, 2}, {2, 3}, {3, 2}, {2, 1}}, Null}, {
+      EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["C", "B"] -> Dashing[{Small, Small}], 
+         DirectedEdge["B", "A"] -> Dashing[{Small, Small}]}, GraphLayout -> 
+       "SpringEmbedding", VertexCoordinates -> {{0, 0}, {1, 0}, {2, 0}}, 
+       VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Rectangle"}, 
+       VertexSize -> {0.5}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {0.5000000000000002, 0.1644407471831165}, {
+          1., 0.}}], 0.25], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5000000000000003, -0.1644407471831164}, {0., 0.}}], 0.25]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., 0.}, {1.4999999999999984`, 
+          0.1644407471831161}, {2., 0.}}], 0.25], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.500000000000002, -0.16444074718311635`}, {1., 0.}}], 0.25]}}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {RectangleBox[{-0.264705, -0.1764705}, {0.264705, 0.1764705}],
+          InsetBox["\<\"A\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.735295, -0.1764705}, {1.264705, 0.1764705}], 
+         InsetBox["\<\"B\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{1.735295, -0.1764705}, {2.264705, 0.1764705}], 
+         InsetBox["\<\"C\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{679.33203125, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.942471017739801*^9, {3.942471047917554*^9, 3.942471066469351*^9}, {
+   3.943167746095647*^9, 3.943167761224421*^9}},
+ CellLabel->"Out[7]=",ExpressionUUID->"6155bf0e-8a2a-44e8-a593-7bae8b57e369"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<S_d1\>\"", "\[DirectedEdge]", "\"\<R\>\""}], ",", 
+     RowBox[{"\"\<S_d2\>\"", "\[DirectedEdge]", "\"\<R\>\""}], ",", 
+     RowBox[{"\"\<S_d3\>\"", "\[DirectedEdge]", "\"\<R\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<S_d1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<S_d2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<S_d3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<S_d1\>\"", "\[DirectedEdge]", "\"\<S_d2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<S_d2\>\"", "\[DirectedEdge]", "\"\<S_d1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<S_d1\>\"", "\[DirectedEdge]", "\"\<S_d3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<S_d3\>\"", "\[DirectedEdge]", "\"\<S_d1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<S_d2\>\"", "\[DirectedEdge]", "\"\<S_d3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<S_d3\>\"", "\[DirectedEdge]", "\"\<S_d2\>\""}]}], "}"}], 
+   ",", " ", "\[IndentingNewLine]", 
+   RowBox[{"VertexCoordinates", "\[Rule]", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<S_d1\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<S_d2\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<S_d3\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Sr\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<S_d1\>\"", "\[DirectedEdge]", "\"\<S_d2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<S_d2\>\"", "\[DirectedEdge]", "\"\<S_d1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<S_d2\>\"", "\[DirectedEdge]", "\"\<S_d3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<S_d3\>\"", "\[DirectedEdge]", "\"\<S_d2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<S_d1\>\"", "\[DirectedEdge]", "\"\<S_d3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<S_d3\>\"", "\[DirectedEdge]", "\"\<S_d1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<S_d3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<S_d2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R\>\"", "\[DirectedEdge]", "\"\<S_d1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R\>\""}], "->", 
+       "Dashed"}]}], "\[IndentingNewLine]", "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Rectangle\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdxztIAgEAh/HLQYoMCzTKIAqxMKy2GqTwCMNskyIozRJFCUqloQemDpKJ
+BUGmrQ1pmBqZYU1FLwgNigSroZYGQQ6SHiAhdv8bPn58rTqzysAiCEJABzNu
+1WF8kiL3x74ZI4rBE5jg15xCy5fiN0Hra9j+gyWjaOlAS5Hq+f5l6G202GFX
+SOCGAceWl3k5Nwa723THMCyvS8IqkfgcsqVPF3BkL5WG12LFM2zST7xBVmT0
+AybKKzmov19tj9D6Ul4JlHB3GXvnXmVwcSOjhewWpx4OudZMcP1OOQuFRvUm
+LKXMPljstO3AmWpuEDoNmjjM3+TPYDJ4dAUbpYE01FT6H+BnyP8O7SJHAcYG
+oj/Q5rEW4ULfeEWUVhm+5ECPLV0Lc+psBxx+ydaXpyjSdSsXM5p5vJ5piuQU
+0nxIGKzN0PQoE8J/aPjYZw==
+  "],
+ CellLabel->"In[15]:=",ExpressionUUID->"4f2415e1-ded7-964f-8e4c-789319a85c54"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "S_d1", "R", "S_d2", "S_d3", "Sr"}, {{{1, 2}, {3, 2}, {4, 2}, {2, 5}, {
+       5, 2}, {2, 1}, {2, 3}, {2, 4}, {1, 3}, {3, 1}, {1, 4}, {4, 1}, {3, 
+       4}, {4, 3}}, Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["S_d1", "S_d3"] -> 
+         Dashing[{Small, Small}], DirectedEdge["Sr", "R"] -> 
+         Dashing[{Small, Small}], DirectedEdge["S_d3", "S_d2"] -> 
+         Dashing[{Small, Small}], DirectedEdge["R", "S_d3"] -> 
+         Dashing[{Small, Small}], DirectedEdge["S_d2", "S_d1"] -> 
+         Dashing[{Small, Small}], DirectedEdge["R", "S_d1"] -> 
+         Dashing[{Small, Small}], DirectedEdge["S_d1", "S_d2"] -> 
+         Dashing[{Small, Small}], DirectedEdge["S_d2", "S_d3"] -> 
+         Dashing[{Small, Small}], DirectedEdge["R", "S_d2"] -> 
+         Dashing[{Small, Small}], DirectedEdge["S_d3", "S_d1"] -> 
+         Dashing[{Small, Small}]}, GraphLayout -> "SpringEmbedding", 
+       VertexCoordinates -> {{0, 1}, {1, 0}, {0, 0}, {0, -1}, {2, 0}}, 
+       VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Rectangle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 1.}, {0.6644407471831147, 0.6644407471831181}, {
+          1., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 1.}, {0.1644407471831164, 
+           0.5000000000000003}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 1.}, {0.32888149436623243`, 0.}, {0., -1.}}], 
+          0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.3355592528168832, 
+           0.3355592528168837}, {0., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5000000000000003, -0.1644407471831164}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.6644407471831181, -0.6644407471831147}, {0., -1.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., 0.}, {1.4999999999999984`, 
+          0.1644407471831161}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {-0.1644407471831165, 
+           0.5000000000000002}, {0., 1.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {0.5000000000000002, 0.1644407471831165}, {
+          1., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {
+           0.1644407471831165, -0.5000000000000002}, {0., -1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., -1.}, {-0.32888149436623243`, 0.}, {0., 1.}}], 
+          0.1]}, ArrowBox[
+         BezierCurveBox[{{0., -1.}, {
+          0.3355592528168837, -0.3355592528168832}, {1., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{
+           0., -1.}, {-0.1644407471831164, -0.5000000000000003}, {0., 0.}}], 
+          0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.500000000000002, -0.16444074718311635`}, {1., 0.}}], 0.1]}}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         RectangleBox[{-0.10588200000000002, 0.9294118}, \
+{0.10588200000000002, 1.0705882}], InsetBox["\<\"S_d1\"\>", {0., 1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, -0.0705882}, {1.105882, 0.0705882}], 
+         InsetBox["\<\"R\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{-0.10588200000000002, -0.0705882}, \
+{0.10588200000000002, 0.0705882}], InsetBox["\<\"S_d2\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{-0.10588200000000002, -1.0705882}, \
+{0.10588200000000002, -0.9294118}], InsetBox["\<\"S_d3\"\>", {0., -1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{1.894118, -0.0705882}, {2.105882, 0.0705882}], 
+         InsetBox["\<\"Sr\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{512.453125, Automatic}]], "Output",
+ CellChangeTimes->{{3.9424755209157867`*^9, 3.9424755330740128`*^9}, 
+   3.942475725801585*^9, {3.942475859312418*^9, 3.942475894614524*^9}, {
+   3.942475960072866*^9, 3.942475969975545*^9}, {3.9424760398880663`*^9, 
+   3.942476054225177*^9}, 3.942476120401388*^9, 3.94316820268779*^9, 
+   3.943168280098345*^9, 3.943168334770672*^9, 3.9432808892853203`*^9, 
+   3.943280925839408*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"53591a74-9203-4464-8db0-3da0ce216281"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 16, 13, 26066043483358138143, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9432809378319807`*^9},
+ CellLabel->
+  "During evaluation of \
+In[16]:=",ExpressionUUID->"daee1ef7-263b-4f5a-930e-d8fccb59ea32"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<Sd\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R2\>\""}]}], "}"}], ",", 
+   " ", "\[IndentingNewLine]", 
+   RowBox[{"VertexCoordinates", "\[Rule]", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<Sd\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R1\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R2\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R3\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Sr\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd\>\""}], "->", 
+       "Dashed"}]}], "\[IndentingNewLine]", "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Rectangle\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.94249346504268*^9, 3.942493515906555*^9}, {
+  3.9424935523752823`*^9, 3.942493674937866*^9}, {3.942493707847034*^9, 
+  3.9424937226517563`*^9}, {3.9424938365630503`*^9, 3.942493892503152*^9}, {
+  3.942494778217942*^9, 3.942494911206841*^9}, {3.942494963947825*^9, 
+  3.9424954299887667`*^9}, {3.942495476044097*^9, 3.942495556230929*^9}, {
+  3.943168421489558*^9, 3.943168524032055*^9}, {3.943168568579631*^9, 
+  3.943168725461772*^9}, {3.9431687658003807`*^9, 3.943168836828793*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"5a3c1203-eb4f-4eae-b5af-0634ebfa86fa"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "Sd", "R1", "Sr", "R2", "R3"}, {{{1, 2}, {2, 3}, {3, 2}, {4, 3}, {3, 
+       4}, {5, 3}, {1, 5}, {3, 5}, {5, 1}, {1, 4}, {4, 1}, {2, 1}, {2, 4}, {4,
+        2}, {2, 5}, {5, 2}, {4, 5}, {5, 4}}, Null}, {EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["Sr", "R1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "Sd"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "R1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "R1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "Sd"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "R2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sr", "R2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "R3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sr", "R3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "R3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "Sd"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "R2"] -> Dashing[{Small, Small}]}, GraphLayout -> 
+       "SpringEmbedding", 
+       VertexCoordinates -> {{0, 0}, {1, 1}, {2, 0}, {1, 0}, {1, -1}}, 
+       VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Rectangle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {0.33555925281688376`, 
+          0.6644407471831175}, {1., 1.}}], 0.1], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {0.5000000000000002, 0.1644407471831165}, {
+          1., 0.}}], 0.1], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {
+          0.6644407471831175, -0.33555925281688376`}, {1., -1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {0.6644407471831183, 
+           0.33555925281688537`}, {0., 0.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., 1.}, {1.6644407471831089`, 
+          0.6644407471831224}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {1.1644407471831195`, 
+           0.5000000000000049}, {1., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {1.3288814943662328`, 0.}, {1., -1.}}], 
+          0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {1.3355592528168887`, 
+           0.3355592528168798}, {1., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.500000000000002, -0.16444074718311635`}, {1., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.6644407471831162`, -0.6644407471831195}, {1., -1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5000000000000003, -0.1644407471831164}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.8355592528168824, 0.500000000000004}, {
+           1., 1.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., 0.}, {1.4999999999999984`, 
+          0.1644407471831161}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           1.1644407471831193`, -0.5000000000000053}, {1., -1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           0.33555925281688537`, -0.6644407471831183}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {0.6711185056337673, 0.}, {1., 1.}}], 
+          0.1]}, ArrowBox[
+         BezierCurveBox[{{1., -1.}, {
+          1.3355592528168787`, -0.3355592528168869}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           0.8355592528168823, -0.5000000000000041}, {1., 0.}}], 0.1]}}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         RectangleBox[{-0.10588200000000002, -0.0705882}, \
+{0.10588200000000002, 0.0705882}], InsetBox["\<\"Sd\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, 0.9294118}, {1.105882, 1.0705882}], 
+         InsetBox["\<\"R1\"\>", {1., 1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{1.894118, -0.0705882}, {2.105882, 0.0705882}], 
+         InsetBox["\<\"Sr\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, -0.0705882}, {1.105882, 0.0705882}], 
+         InsetBox["\<\"R2\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, -1.0705882}, {1.105882, -0.9294118}], 
+         InsetBox["\<\"R3\"\>", {1., -1.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{432.56640625, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.9424934475550327`*^9, {3.942493573653214*^9, 3.942493588844736*^9}, {
+   3.942493659665854*^9, 3.9424936767227592`*^9}, 3.942493725955612*^9, {
+   3.942493842079084*^9, 3.942493895629657*^9}, 3.942494787153879*^9, {
+   3.942494822016149*^9, 3.9424948415339937`*^9}, {3.9424949035037813`*^9, 
+   3.942494912682873*^9}, {3.942494965229333*^9, 3.942495002326806*^9}, 
+   3.94249503372001*^9, 3.9424950683708553`*^9, 3.9424951019299917`*^9, {
+   3.942495135698838*^9, 3.9424951921926117`*^9}, {3.942495227071048*^9, 
+   3.942495245380823*^9}, 3.942495284710805*^9, {3.9424953208277283`*^9, 
+   3.942495367842676*^9}, 3.942495400486145*^9, 3.9424954327309217`*^9, 
+   3.942495557986105*^9, 3.943168557785098*^9, {3.943168592339666*^9, 
+   3.9431686043133163`*^9}, {3.943168652612269*^9, 3.943168699540962*^9}, 
+   3.9431687763357267`*^9, 3.943168840012725*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"76db65aa-4009-48d3-ba32-9f5362cb68a2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 29, 4, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.943168853436716*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"bcc89b96-6ba9-405b-ba35-85ff76c180c3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sr\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R2\>\""}]}], "}"}], ",", 
+   " ", "\[IndentingNewLine]", 
+   RowBox[{"VertexCoordinates", "\[Rule]", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\"\<Sd1\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Sd2\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Sd3\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R1\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R2\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<R3\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Sr\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}]}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"VertexLabels", "\[Rule]", 
+    RowBox[{"Placed", "[", 
+     RowBox[{"Automatic", ",", "Center"}], "]"}]}], ",", 
+   RowBox[{"VertexSize", "->", "0.2"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"EdgeStyle", "->", 
+    RowBox[{"{", 
+     RowBox[{"Style", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"Thick", ",", " ", "Black"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sd2\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<Sd3\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<Sd1\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R2\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R1\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<Sr\>\"", "\[DirectedEdge]", "\"\<R3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R1\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R2\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], "->", 
+       "Dashed"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd1\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd2\>\""}], "->", 
+       "Dashed"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<R3\>\"", "\[DirectedEdge]", "\"\<Sd3\>\""}], "->", 
+       "Dashed"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"{", "LightGray", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"VertexShapeFunction", "\[Rule]", "\"\<Rectangle\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"GraphLayout", "->", "\"\<SpringEmbedding\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.942496408489665*^9, 3.942496462327182*^9}, {
+  3.942496595700004*^9, 3.94249681486762*^9}, {3.942497491612047*^9, 
+  3.942497553054399*^9}, {3.942497585797872*^9, 3.9424978191309767`*^9}, {
+  3.943168919701344*^9, 3.943169096916184*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"eab315f5-57f6-4b60-9429-10f297b287c0"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "Sd1", "R1", "Sd2", "Sd3", "R2", "R3", "Sr"}, {{{1, 2}, {1, 3}, {3, 
+       1}, {3, 2}, {3, 4}, {3, 5}, {3, 6}, {4, 2}, {4, 3}, {4, 5}, {4, 6}, {2,
+        3}, {2, 4}, {6, 4}, {6, 3}, {2, 7}, {7, 2}, {5, 7}, {7, 5}, {6, 7}, {
+       1, 6}, {1, 4}, {4, 1}, {7, 6}, {6, 1}, {1, 5}, {5, 1}, {5, 3}, {2, 
+       1}, {2, 5}, {5, 2}, {2, 6}, {6, 2}, {5, 6}, {5, 4}, {6, 5}}, Null}, {
+      EdgeStyle -> {{
+          Thickness[Large], 
+          GrayLevel[0]}, DirectedEdge["R1", "Sd1"] -> Dashing[{Small, Small}],
+          DirectedEdge["R2", "Sd3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sr", "R1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sd3", "Sd2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "Sd2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "Sd2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "R1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "R1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sd1", "Sd2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sd2", "Sd3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sd2", "Sd1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "Sd1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "R2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sd1", "Sd3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sr", "R2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "R3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sr", "R3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "R3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "Sd2"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R1", "Sd3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["Sd3", "Sd1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R2", "Sd1"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "Sd3"] -> Dashing[{Small, Small}], 
+         DirectedEdge["R3", "R2"] -> Dashing[{Small, Small}]}, GraphLayout -> 
+       "SpringEmbedding", 
+       VertexCoordinates -> {{0, 1}, {1, 1}, {0, 0}, {0, -1}, {1, 0}, {
+        1, -1}, {2, 0}}, VertexLabels -> {
+         Placed[Automatic, Center]}, VertexShapeFunction -> {"Rectangle"}, 
+       VertexSize -> {0.2}, VertexStyle -> {
+         GrayLevel[0.85]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Thickness[Large], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[
+         BezierCurveBox[{{0., 1.}, {0.5000000000000053, 
+          1.1644407471831193`}, {1., 1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 1.}, {0.1644407471831164, 
+           0.5000000000000003}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 1.}, {0.32888149436623243`, 0.}, {0., -1.}}], 
+          0.1]}, ArrowBox[
+         BezierCurveBox[{{0., 1.}, {0.6644407471831147, 0.6644407471831181}, {
+          1., 0.}}], 0.1], 
+        ArrowBox[
+         BezierCurveBox[{{0., 1.}, {0.8288814943662343, 
+          0.16444074718311413`}, {1., -1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {0.5000000000000041, 
+           0.8355592528168823}, {0., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {0.6644407471831183, 
+           0.33555925281688537`}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {
+           0.8288814943662342, -0.16444074718311427`}, {0., -1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {1.1644407471831195`, 
+           0.5000000000000049}, {1., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 1.}, {1.3288814943662328`, 0.}, {1., -1.}}], 
+          0.1]}, ArrowBox[
+         BezierCurveBox[{{1., 1.}, {1.6644407471831089`, 
+          0.6644407471831224}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {-0.1644407471831165, 
+           0.5000000000000002}, {0., 1.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {0.33555925281688376`, 
+          0.6644407471831175}, {1., 1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., 0.}, {
+           0.1644407471831165, -0.5000000000000002}, {0., -1.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {0.5000000000000002, 0.1644407471831165}, {
+          1., 0.}}], 0.1], 
+        ArrowBox[
+         BezierCurveBox[{{0., 0.}, {
+          0.6644407471831175, -0.33555925281688376`}, {1., -1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{0., -1.}, {-0.32888149436623243`, 0.}, {0., 1.}}], 
+          0.1]}, ArrowBox[
+         BezierCurveBox[{{0., -1.}, {0.1711185056337661, 0.164440747183116}, {
+          1., 1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{
+           0., -1.}, {-0.1644407471831164, -0.5000000000000003}, {0., 0.}}], 
+          0.1]}, ArrowBox[
+         BezierCurveBox[{{0., -1.}, {
+          0.3355592528168837, -0.3355592528168832}, {1., 0.}}], 0.1], 
+        ArrowBox[
+         BezierCurveBox[{{0., -1.}, {
+          0.500000000000004, -0.8355592528168824}, {1., -1.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.3355592528168832, 
+           0.3355592528168837}, {0., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {0.8355592528168824, 0.500000000000004}, {
+           1., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.5000000000000003, -0.1644407471831164}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           0.6644407471831181, -0.6644407471831147}, {0., -1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., 0.}, {
+           1.1644407471831193`, -0.5000000000000053}, {1., -1.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., 0.}, {1.4999999999999984`, 
+          0.1644407471831161}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           0.17111850563376996`, -0.1644407471831203}, {0., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {0.6711185056337673, 0.}, {1., 1.}}], 
+          0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           0.33555925281688537`, -0.6644407471831183}, {0., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           0.5000000000000049, -1.1644407471831195`}, {0., -1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{1., -1.}, {
+           0.8355592528168823, -0.5000000000000041}, {1., 0.}}], 0.1]}, 
+        ArrowBox[
+         BezierCurveBox[{{1., -1.}, {
+          1.3355592528168787`, -0.3355592528168869}, {2., 0.}}], 0.1], 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {1.3355592528168887`, 
+           0.3355592528168798}, {1., 1.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.500000000000002, -0.16444074718311635`}, {1., 0.}}], 0.1]}, 
+        {Dashing[{Small, Small}], 
+         ArrowBox[
+          BezierCurveBox[{{2., 0.}, {
+           1.6644407471831162`, -0.6644407471831195}, {1., -1.}}], 0.1]}}, 
+       {GrayLevel[0.85], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         RectangleBox[{-0.10588200000000002, 0.9294118}, \
+{0.10588200000000002, 1.0705882}], InsetBox["\<\"Sd1\"\>", {0., 1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, 0.9294118}, {1.105882, 1.0705882}], 
+         InsetBox["\<\"R1\"\>", {1., 1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{-0.10588200000000002, -0.0705882}, \
+{0.10588200000000002, 0.0705882}], InsetBox["\<\"Sd2\"\>", {0., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{-0.10588200000000002, -1.0705882}, \
+{0.10588200000000002, -0.9294118}], InsetBox["\<\"Sd3\"\>", {0., -1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, -0.0705882}, {1.105882, 0.0705882}], 
+         InsetBox["\<\"R2\"\>", {1., 0.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{0.894118, -1.0705882}, {1.105882, -0.9294118}], 
+         InsetBox["\<\"R3\"\>", {1., -1.},
+          BaseStyle->"Graphics"]}, {
+         RectangleBox[{1.894118, -0.0705882}, {2.105882, 0.0705882}], 
+         InsetBox["\<\"Sr\"\>", {2., 0.},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{414.9921875, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.9424964214171543`*^9, 3.942496463597517*^9, {3.942496609300535*^9, 
+   3.942496681500506*^9}, 3.9424967124447947`*^9, 3.942496763590287*^9, 
+   3.94249681704065*^9, {3.9424975094752417`*^9, 3.942497554270178*^9}, 
+   3.9424976187862787`*^9, {3.942497651587373*^9, 3.942497679256534*^9}, {
+   3.942497714195017*^9, 3.942497784620036*^9}, 3.942497820369213*^9, 
+   3.9431689299086018`*^9, 3.943168991753449*^9, {3.9431690481094227`*^9, 
+   3.9431691014040337`*^9}},
+ CellLabel->"Out[34]=",ExpressionUUID->"40b94cdd-fe3d-4c8e-b836-fc9719b546a8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Inherited\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Inherited\\\", \\\"[\\\", \\\"\\\\\\\"State\\\\\\\"\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 35, 5, 26063812686106989109, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9431691179659433`*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"24abccd2-3aa0-4183-81e7-633bdb2c6e15"]
+}, Open  ]]
+},
+WindowSize->{957, 1027},
+WindowMargins->{{Automatic, -3286}, {Automatic, 81}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6daa104f-254b-a346-b563-cda71f7ca7fe"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 1186, 34, 70, "Input",ExpressionUUID->"c35292d6-366d-0143-82c4-62513ec3100a"],
+Cell[1765, 58, 1304, 26, 76, "Output",ExpressionUUID->"3617a793-7e6c-4701-a26e-22ae454b24f9"],
+Cell[3072, 86, 446, 10, 26, "Message",ExpressionUUID->"a2d4ba0c-3da8-40e2-a670-c0f370d8dafb"]
+}, Open  ]],
+Cell[3533, 99, 1538, 33, 52, "Input",ExpressionUUID->"c5b7b68b-507a-604c-9d21-5f6cc2c03827"],
+Cell[5074, 134, 719, 20, 29, "Input",ExpressionUUID->"f73d00a7-f45b-464f-a950-f75d390cc7b4"],
+Cell[5796, 156, 1350, 28, 72, "Input",ExpressionUUID->"a22e0a7c-b0b4-d74e-a815-eb4eedad2dd7"],
+Cell[7149, 186, 719, 20, 29, "Input",ExpressionUUID->"ed0f5d0d-bab6-dc43-bd28-aac2ac64ead0"],
+Cell[7871, 208, 1340, 29, 51, "Input",ExpressionUUID->"699fd1ae-0152-1040-818b-731bff5d5cdb"],
+Cell[CellGroupData[{
+Cell[9236, 241, 2631, 62, 213, "Input",ExpressionUUID->"859bc2cd-876c-6040-83d7-93047f9098e9"],
+Cell[11870, 305, 3269, 58, 217, "Output",ExpressionUUID->"8983550a-6676-45f3-ad6a-9b302486d2d3"],
+Cell[15142, 365, 446, 10, 26, "Message",ExpressionUUID->"1d5d283b-2937-4d90-8083-f0ee9cc4f73a"]
+}, Open  ]],
+Cell[15603, 378, 1823, 49, 90, "Input",ExpressionUUID->"e6716c95-25e1-1841-9662-3e22e3843068"],
+Cell[17429, 429, 1943, 52, 70, "Input",ExpressionUUID->"9f9619b2-6888-6848-912f-a0a2d2331d35"],
+Cell[19375, 483, 2534, 65, 90, "Input",ExpressionUUID->"775c02e5-246c-594f-a6ed-de3bb8a3070d"],
+Cell[21912, 550, 3040, 79, 111, "Input",ExpressionUUID->"c98bd536-1b6e-614a-8254-eae533bafa38"],
+Cell[24955, 631, 3148, 81, 111, "Input",ExpressionUUID->"9c81a324-ccb3-1e4b-8502-d0088c1f60ac"],
+Cell[CellGroupData[{
+Cell[28128, 716, 4179, 103, 151, "Input",ExpressionUUID->"e3e4f6ea-fa78-1348-9d68-655222921185"],
+Cell[32310, 821, 5711, 110, 210, "Output",ExpressionUUID->"3fe16d86-9923-404a-926e-409dd6158b7b"]
+}, Open  ]],
+Cell[38036, 934, 154, 3, 29, "Input",ExpressionUUID->"316e135e-f070-4f46-af83-00e673e2b96d"],
+Cell[38193, 939, 3407, 85, 151, "Input",ExpressionUUID->"b05d942a-8e51-dc4b-8610-20dc451873eb"],
+Cell[CellGroupData[{
+Cell[41625, 1028, 3926, 89, 172, "Input",ExpressionUUID->"fb1fb4c7-a942-334e-8b07-dd4f54695400"],
+Cell[45554, 1119, 4779, 97, 225, "Output",ExpressionUUID->"b458e98b-22f8-384e-a3d4-a7d3ac896787"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50370, 1221, 857, 24, 49, "Input",ExpressionUUID->"416bbe4d-a64e-49dd-a9af-f5d45f32b685"],
+Cell[51230, 1247, 861, 24, 53, "Output",ExpressionUUID->"8ed615d7-c56c-4036-92fd-89d5aa165195"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52128, 1276, 3094, 70, 335, "Input",ExpressionUUID->"6bf83739-3ab6-4416-8d8d-bbaa90d50f26"],
+Cell[55225, 1348, 11627, 239, 97, "Output",ExpressionUUID->"7b82104a-a4fb-4ef4-a5a3-afef1dd95b34"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66889, 1592, 3270, 74, 172, "Input",ExpressionUUID->"c3e56a1e-c8a0-4559-818a-7baf5543799e"],
+Cell[70162, 1668, 4222, 85, 267, "Output",ExpressionUUID->"a14bc19d-f8a7-4eef-a44d-2307ee05abbf"],
+Cell[74387, 1755, 446, 10, 26, "Message",ExpressionUUID->"b76c6cf9-19ec-41cc-81ee-9e09b3bc4830"],
+Cell[74836, 1767, 446, 10, 26, "Message",ExpressionUUID->"7a4b366d-e528-42f4-a55c-6412446e7073"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75319, 1782, 1570, 40, 151, "Input",ExpressionUUID->"ed881c1e-990c-447f-9efb-3617d8442ae7"],
+Cell[76892, 1824, 1395, 28, 376, "Output",ExpressionUUID->"56a2c8c8-b60c-41d4-9d08-047f4c02f4a0"],
+Cell[78290, 1854, 447, 10, 26, "Message",ExpressionUUID->"1d13ba7c-f05c-4440-81ee-7e53c8ecab9c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78774, 1869, 1889, 45, 151, "Input",ExpressionUUID->"b4ff77ec-43ab-47fa-b6c6-82baade803be"],
+Cell[80666, 1916, 2107, 45, 376, "Output",ExpressionUUID->"1753d970-0a0a-484c-99f8-8c5d85827fdd"],
+Cell[82776, 1963, 445, 10, 26, "Message",ExpressionUUID->"cb094b6e-5a8a-45a9-906d-ebf8ed64faaf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83258, 1978, 2429, 56, 192, "Input",ExpressionUUID->"7b4b9972-cdce-42a7-92c7-885aebbc6094"],
+Cell[85690, 2036, 2630, 57, 358, "Output",ExpressionUUID->"d907973f-cee7-42a0-a5f5-c78a1c303d28"],
+Cell[88323, 2095, 447, 10, 26, "Message",ExpressionUUID->"4d8fc061-c23d-4f18-bbde-fd67d44764d4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88807, 2110, 5386, 115, 499, "Input",ExpressionUUID->"ac4df05e-4074-4700-8c47-4796a51e8642"],
+Cell[94196, 2227, 5600, 115, 329, "Output",ExpressionUUID->"71f18ec1-358a-4087-a51e-f8cd6a1cf6d2"],
+Cell[99799, 2344, 447, 10, 26, "Message",ExpressionUUID->"102dacb3-286a-41f1-90b1-59ddcc572df1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[100283, 2359, 1918, 44, 151, "Input",ExpressionUUID->"48d557fe-edfc-1e47-9e9c-df37fdb92780"],
+Cell[102204, 2405, 1542, 32, 131, "Output",ExpressionUUID->"26dcc7dd-42de-46e3-a25a-e8e173100197"],
+Cell[103749, 2439, 443, 10, 26, "Message",ExpressionUUID->"57de7c00-f97e-45b8-8b12-8aa09247cb54"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[104229, 2454, 2010, 46, 172, "Input",ExpressionUUID->"57deffe0-31f5-4063-9b89-90f94a966eea"],
+Cell[106242, 2502, 2294, 49, 134, "Output",ExpressionUUID->"6155bf0e-8a2a-44e8-a593-7bae8b57e369"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[108573, 2556, 4860, 106, 703, "Input",ExpressionUUID->"4f2415e1-ded7-964f-8e4c-789319a85c54"],
+Cell[113436, 2664, 5120, 108, 488, "Output",ExpressionUUID->"53591a74-9203-4464-8db0-3da0ce216281"],
+Cell[118559, 2774, 448, 10, 26, "Message",ExpressionUUID->"daee1ef7-263b-4f5a-930e-d8fccb59ea32"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[119044, 2789, 5396, 118, 764, "Input",ExpressionUUID->"5a3c1203-eb4f-4eae-b5af-0634ebfa86fa"],
+Cell[124443, 2909, 6285, 130, 435, "Output",ExpressionUUID->"76db65aa-4009-48d3-ba32-9f5362cb68a2"],
+Cell[130731, 3041, 445, 10, 26, "Message",ExpressionUUID->"bcc89b96-6ba9-405b-ba35-85ff76c180c3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[131213, 3056, 8681, 193, 1275, "Input",ExpressionUUID->"eab315f5-57f6-4b60-9429-10f297b287c0"],
+Cell[139897, 3251, 9906, 210, 414, "Output",ExpressionUUID->"40b94cdd-fe3d-4c8e-b836-fc9719b546a8"],
+Cell[149806, 3463, 447, 10, 26, "Message",ExpressionUUID->"24abccd2-3aa0-4183-81e7-633bdb2c6e15"]
+}, Open  ]]
+}
+]
+*)
+

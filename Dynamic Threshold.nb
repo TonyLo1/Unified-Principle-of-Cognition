@@ -1,0 +1,522 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     22917,        514]
+NotebookOptionsPosition[     21989,        488]
+NotebookOutlinePosition[     22706,        512]
+CellTagsIndexPosition[     22626,        507]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943427107279142*^9, 3.943427117990513*^9}, 
+   3.943427151437591*^9},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"2dc3347b-760b-4006-a06d-fd56b84162d8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DynamicActivationThresholdPlot", "[", 
+   RowBox[{
+   "nodes_Integer", ",", "targetCount_Integer", ",", "\[Lambda]_Real", ",", 
+    "eventRate_Real", ",", "timeSteps_Integer", ",", 
+    "thresholdAdjustment_Real"}], "]"}], ":=", "\[IndentingNewLine]", "    ", 
+  
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "activations", ",", "threshold", ",", "adjustedActivations", ",", 
+      "timeSinceLastEvent", ",", "updateActivations", ",", 
+      "activationHistory", ",", "thresholdHistory", ",", 
+      "activatedNodeHistory", ",", "eventProbabilities", ",", "numEvents", 
+      ",", "eventPotential", ",", "distributionRanges"}], "}"}], ",", 
+    "\[IndentingNewLine]", "     ", "\[IndentingNewLine]", "     ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Initialize", " ", "activation", " ", "levels", " ", "and", " ", "time", 
+      " ", "since", " ", "last", " ", "event", " ", "for", " ", "each", " ", 
+      "node"}], " ", "*)"}], "\[IndentingNewLine]", "     ", 
+    RowBox[{
+     RowBox[{"activations", "=", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{"0", ",", "nodes"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     "     ", 
+     RowBox[{"timeSinceLastEvent", "=", 
+      RowBox[{"ConstantArray", "[", 
+       RowBox[{"0", ",", "nodes"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     "     ", 
+     RowBox[{"activationHistory", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", "     ", 
+     RowBox[{"thresholdHistory", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", "     ", 
+     RowBox[{"activatedNodeHistory", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", "     ", 
+     RowBox[{"threshold", "=", "0.5"}], ";", " ", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Initial", " ", "threshold", " ", "value"}], " ", "*)"}], 
+     "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", "     ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Probability", " ", "of", " ", "event", " ", "based", " ", "on", " ", 
+       "normal", " ", "distribution", " ", "centered", " ", "around", " ", 
+       "the", " ", "middle", " ", "node"}], " ", "*)"}], 
+     "\[IndentingNewLine]", "     ", 
+     RowBox[{"eventProbabilities", "=", 
+      RowBox[{"PDF", "[", 
+       RowBox[{
+        RowBox[{"NormalDistribution", "[", 
+         RowBox[{
+          RowBox[{"nodes", "/", "2"}], ",", 
+          RowBox[{"nodes", "/", "10"}]}], "]"}], ",", 
+        RowBox[{"Range", "[", "nodes", "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "     ", 
+     RowBox[{"eventProbabilities", "=", 
+      RowBox[{"Rescale", "[", 
+       RowBox[{"eventProbabilities", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Min", "[", "eventProbabilities", "]"}], ",", 
+          RowBox[{"Max", "[", "eventProbabilities", "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", "     ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Define", " ", "event", " ", "potential", " ", "distribution", " ", 
+       "ranges", " ", "for", " ", "busy", " ", "and", " ", "quiet", " ", 
+       "periods"}], " ", "*)"}], "\[IndentingNewLine]", "     ", 
+     RowBox[{"distributionRanges", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0.5", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.2", ",", "0.4"}], "}"}]}], "}"}]}], ";", 
+     "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", "     ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Function", " ", "to", " ", "update", " ", "activations", " ", "based", 
+       " ", "on", " ", "incoming", " ", "events", " ", "and", " ", "decay"}], 
+      " ", "*)"}], "\[IndentingNewLine]", "     ", 
+     RowBox[{
+      RowBox[{"updateActivations", "[", "step_", "]"}], ":=", 
+      RowBox[{"(", "\[IndentingNewLine]", "       ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "Determine", " ", "distribution", " ", "range", " ", "based", " ", 
+         "on", " ", "time", " ", "step"}], " ", "*)"}], "\[IndentingNewLine]",
+        "       ", 
+       RowBox[{
+        RowBox[{"currentRange", "=", 
+         RowBox[{"distributionRanges", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"Mod", "[", 
+             RowBox[{
+              RowBox[{"Floor", "[", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"step", "-", "1"}], ")"}], "/", "10"}], "]"}], ",", 
+              "2"}], "]"}], "+", "1"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "       ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Generate", " ", "random", " ", "event", " ", "arrivals", " ", 
+          "based", " ", "on", " ", "probabilities"}], " ", "*)"}], 
+        "\[IndentingNewLine]", "       ", 
+        RowBox[{"timeSinceLastEvent", " ", "+=", " ", "1"}], ";", " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Increment", " ", "time", " ", "since", " ", "last", " ", "event", 
+          " ", "for", " ", "all", " ", "nodes"}], " ", "*)"}], 
+        "\[IndentingNewLine]", "       ", 
+        RowBox[{"Do", "[", "\[IndentingNewLine]", "        ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"numEvents", "=", 
+            RowBox[{"Round", "[", 
+             RowBox[{"RandomVariate", "[", 
+              RowBox[{"NormalDistribution", "[", 
+               RowBox[{
+                RowBox[{"eventRate", "*", 
+                 RowBox[{"eventProbabilities", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}], ",", "1"}], "]"}], "]"}], 
+             "]"}]}], ";", "\[IndentingNewLine]", "        ", 
+           RowBox[{"numEvents", "=", 
+            RowBox[{"Max", "[", 
+             RowBox[{"numEvents", ",", "0"}], "]"}]}], ";", " ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{"Ensure", " ", "non"}], "-", 
+             RowBox[{"negative", " ", "number", " ", "of", " ", "events"}]}], 
+            " ", "*)"}], "\[IndentingNewLine]", "        ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "Calculate", " ", "total", " ", "potential", " ", "from", " ", 
+             "all", " ", "events", " ", "at", " ", "this", " ", "node", " ", 
+             "with", " ", "values", " ", "between", " ", "0.5", " ", "and", 
+             " ", "1"}], " ", "*)"}], "\[IndentingNewLine]", "        ", 
+           RowBox[{"eventPotential", "=", 
+            RowBox[{"Total", "[", 
+             RowBox[{"RandomReal", "[", 
+              RowBox[{"currentRange", ",", "numEvents"}], "]"}], "]"}]}], ";",
+            "\[IndentingNewLine]", "        ", 
+           RowBox[{
+            RowBox[{"activations", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "=", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"activations", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "+", "eventPotential"}], 
+              ")"}], "/", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"activations", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "+", "eventPotential", "+", 
+               "1"}], ")"}]}]}], ";", " ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Normalization", " ", "formula"}], " ", "*)"}], 
+           "\[IndentingNewLine]", "        ", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"numEvents", ">", "0"}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"timeSinceLastEvent", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "=", "0"}], ";"}]}], "]"}]}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "nodes"}], "}"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", "       ", 
+        RowBox[{"(*", " ", 
+         RowBox[{"Apply", " ", "exponential", " ", "decay"}], " ", "*)"}], 
+        "\[IndentingNewLine]", "       ", 
+        RowBox[{"activations", "=", 
+         RowBox[{"activations", " ", 
+          RowBox[{"Exp", "[", 
+           RowBox[{
+            RowBox[{"-", "\[Lambda]"}], " ", "timeSinceLastEvent"}], 
+           "]"}]}]}], ";"}], "\[IndentingNewLine]", "     ", ")"}]}], ";", 
+     "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", "     ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+      "Simulate", " ", "over", " ", "the", " ", "given", " ", "time", " ", 
+       "steps"}], " ", "*)"}], "\[IndentingNewLine]", "     ", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", "      ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"updateActivations", "[", "t", "]"}], ";", 
+        "\[IndentingNewLine]", "      ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"activationHistory", ",", 
+          RowBox[{"Mean", "[", "activations", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "      ", 
+        RowBox[{"activatedNodes", "=", 
+         RowBox[{"Count", "[", 
+          RowBox[{"activations", ",", 
+           RowBox[{"_", " ", "?", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"#", ">", "threshold"}], " ", "&"}], ")"}]}]}], "]"}]}],
+         ";", "\[IndentingNewLine]", "      ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"activatedNodeHistory", ",", "activatedNodes"}], "]"}], ";", 
+        "\[IndentingNewLine]", "      ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Adjust", " ", "the", " ", "threshold", " ", "based", " ", "on", " ",
+           "the", " ", "number", " ", "of", " ", "active", " ", "nodes"}], 
+         " ", "*)"}], "\[IndentingNewLine]", "      ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"activatedNodes", ">", "targetCount"}], ",", 
+          "\[IndentingNewLine]", "       ", 
+          RowBox[{"threshold", " ", "+=", " ", 
+           RowBox[{"thresholdAdjustment", "*", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"activatedNodes", "-", "targetCount"}], ")"}], "/", 
+             "targetCount"}]}]}], ",", "\[IndentingNewLine]", "       ", 
+          RowBox[{"threshold", " ", "-=", " ", 
+           RowBox[{"thresholdAdjustment", "*", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"targetCount", "-", "activatedNodes"}], ")"}], "/", 
+             "targetCount"}]}]}]}], "\[IndentingNewLine]", "       ", "]"}], 
+        ";", "\[IndentingNewLine]", "      ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"thresholdHistory", ",", "threshold"}], "]"}], ";", 
+        "\[IndentingNewLine]", "      ", 
+        RowBox[{"adjustedActivations", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"#", ">", "threshold"}], ",", "#", ",", "0"}], "]"}], 
+            " ", "&"}], ",", "activations"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", "      ", 
+        RowBox[{"GraphicsRow", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{"(*", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ListPlot", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"activations", ",", "adjustedActivations"}], "}"}], 
+              ",", "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"PlotLegends", "->", 
+               RowBox[{"Placed", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                  "\"\<Original Activations\>\"", ",", 
+                   "\"\<Thresholded Activations\>\""}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0.8", ",", "0.8"}], "}"}]}], "]"}]}], ",", 
+              "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"PlotRange", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "nodes"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+              "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"AxesLabel", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Node Index\>\"", ",", "\"\<Activation Value\>\""}], 
+                "}"}]}], ",", "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"Epilog", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"GrayLevel", "[", "0.5", "]"}], ",", "Dashed", ",", 
+                 RowBox[{"Line", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "threshold"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"nodes", ",", "threshold"}], "}"}]}], "}"}], 
+                  "]"}], ",", "\[IndentingNewLine]", "\t\t   ", 
+                 RowBox[{"Text", "[", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Threshold\>\"", ",", 
+                    RowBox[{"GrayLevel", "[", "0.5", "]"}], ",", "Bold"}], 
+                    "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"nodes", "/", "2"}], ",", 
+                    RowBox[{"threshold", "+", "0.05"}]}], "}"}]}], "]"}]}], 
+                "}"}]}], ",", "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"PlotLabel", "->", 
+               RowBox[{"\"\<Time Step: \>\"", " ", "<>", " ", 
+                RowBox[{"ToString", "[", "t", "]"}]}]}], ",", 
+              "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"ImageSize", "->", "Medium"}], ",", 
+              "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"PlotStyle", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"GrayLevel", "[", "0.3", "]"}], ",", 
+                 RowBox[{"GrayLevel", "[", "0.6", "]"}]}], "}"}]}], ",", 
+              "\[IndentingNewLine]", "\t\t ", 
+              RowBox[{"PlotMarkers", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<\[FilledCircle]\>\"", ",", 
+                   RowBox[{"GrayLevel", "[", "0.3", "]"}], ",", "Medium"}], 
+                  "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<\[FilledCircle]\>\"", ",", 
+                   RowBox[{"GrayLevel", "[", "0.6", "]"}], ",", "Medium"}], 
+                  "]"}]}], "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", "      ", 
+            RowBox[{"ListLinePlot", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"activationHistory", ",", "thresholdHistory"}], "}"}], 
+              ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+              RowBox[{"PlotLegends", "->", 
+               RowBox[{"Placed", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                  "\"\<Average Activation\>\"", ",", "\"\<Threshold\>\""}], 
+                  "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0.8", ",", "0.8"}], "}"}]}], "]"}]}], ",", 
+              "\[IndentingNewLine]", "         ", 
+              RowBox[{"PlotRange", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "timeSteps"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+              "\[IndentingNewLine]", "         ", 
+              RowBox[{
+              "PlotLabel", "->", 
+               "\"\<Average Activation and Threshold Over Time\>\""}], ",", 
+              "\[IndentingNewLine]", "         ", 
+              RowBox[{"AxesLabel", "->", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Time Step\>\"", ",", "\"\<Value\>\""}], "}"}]}], 
+              ",", "\[IndentingNewLine]", "         ", 
+              RowBox[{"ImageSize", "->", "Medium"}], ",", 
+              "\[IndentingNewLine]", "         ", 
+              RowBox[{"Frame", "->", "True"}], ",", "\[IndentingNewLine]", 
+              "         ", 
+              RowBox[{"FrameTicks", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                "Automatic", ",", "Automatic", ",", "None", ",", 
+                 "Automatic"}], "}"}]}], ",", "\[IndentingNewLine]", 
+              "         ", 
+              RowBox[{"PlotStyle", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"GrayLevel", "[", "0.5", "]"}], ",", 
+                 RowBox[{"GrayLevel", "[", "0.3", "]"}]}], "}"}]}]}], "]"}]}],
+            "*)"}], "\[IndentingNewLine]", " ", 
+          RowBox[{"ListLinePlot", "[", 
+           RowBox[{
+           "activatedNodeHistory", ",", "\[IndentingNewLine]", "         ", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"{", 
+              RowBox[{"Dashed", ",", 
+               RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", "\t", 
+            RowBox[{"PlotLegends", "->", 
+             RowBox[{"Placed", "[", 
+              RowBox[{
+               RowBox[{"{", "\"\<Activated Nodes\>\"", "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0.7", ",", "0.8"}], "}"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", "         ", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "timeSteps"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "nodes"}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", "         ", 
+            RowBox[{"PlotLabel", "->", "\"\<Number of Activated Nodes\>\""}], 
+            ",", "\[IndentingNewLine]", "         ", 
+            RowBox[{"Frame", "->", "True"}], ",", "\[IndentingNewLine]", 
+            "         ", 
+            RowBox[{"FrameTicks", "->", 
+             RowBox[{"{", 
+              RowBox[{
+              "Automatic", ",", "Automatic", ",", "None", ",", "Automatic"}], 
+              "}"}]}], ",", "\[IndentingNewLine]", "         ", 
+            RowBox[{"FrameLabel", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<Number of Activated Nodes\>\"", ",", "None"}], 
+                "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Time Step\>\"", ",", "\"\<Value\>\""}], "}"}]}], 
+              "}"}]}], ",", "\[IndentingNewLine]", "         ", 
+            RowBox[{"ImageSize", "->", "Medium"}]}], "]"}], 
+          "\[IndentingNewLine]", "        ", "}"}], "]"}]}], 
+       "\[IndentingNewLine]", "      ", ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "timeSteps"}], "}"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "     ", "]"}]}]], "Input",
+ CellChangeTimes->{{3.943427159386924*^9, 3.94342716801136*^9}, 
+   3.943427306702388*^9, {3.943427578641506*^9, 3.943427597363195*^9}, 
+   3.943427743637004*^9, 3.943427866374605*^9, {3.943427945094717*^9, 
+   3.9434279458286943`*^9}, {3.943428030519663*^9, 3.943428031673818*^9}, {
+   3.9434280664507017`*^9, 3.9434280699260674`*^9}, {3.943429654004287*^9, 
+   3.94342969199891*^9}, {3.943430673840816*^9, 3.943430736405538*^9}, {
+   3.943430767743484*^9, 3.943430772089939*^9}, {3.943430830956491*^9, 
+   3.9434308312793016`*^9}, {3.9434309385814734`*^9, 3.943430992172976*^9}, {
+   3.9434310375647993`*^9, 3.9434310654361143`*^9}, {3.9434311192724*^9, 
+   3.943431196327613*^9}, {3.9434315770769787`*^9, 3.943431594807598*^9}, {
+   3.943432621349842*^9, 3.943432623926149*^9}, {3.9434326570558443`*^9, 
+   3.943432729203205*^9}, {3.943432774743849*^9, 3.943432919685576*^9}, {
+   3.943433023664688*^9, 3.943433046089663*^9}},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[55]:=",ExpressionUUID->"c80b2686-3054-4142-ae78-a1041724166e"],
+
+Cell[BoxData[
+ RowBox[{"\t\t\t\t\t\t\t", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Example", " ", "usage", " ", "with", " ", "1000", " ", "nodes"}],
+     ",", " ", 
+    RowBox[{
+    "100", " ", "target", " ", "nodes", " ", "above", " ", "threshold"}], ",",
+     " ", "\n", 
+    RowBox[{
+     RowBox[{"decay", " ", "rate", " ", "\[Lambda]"}], "=", "0.05"}], ",", 
+    " ", 
+    RowBox[{"event", " ", "rate", " ", "5.0"}], ",", " ", 
+    RowBox[{"over", " ", "20", " ", "time", " ", "steps"}], ",", " ", 
+    RowBox[{
+    "and", " ", "threshold", " ", "adjustment", " ", "of", " ", "0.01"}]}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"DynamicActivationThresholdPlot", "[", 
+   RowBox[{
+   "500", ",", "200", ",", "0.25", ",", "10.0", ",", "75", ",", "0.02"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.943426727029993*^9, 3.943426727371621*^9}, {
+   3.9434317286205997`*^9, 3.943431728767438*^9}, {3.943431786040913*^9, 
+   3.943431786308214*^9}, {3.943431968090172*^9, 3.943431968319808*^9}, {
+   3.943432069470952*^9, 3.943432069752199*^9}, 3.9434321193753977`*^9, {
+   3.9434321823146467`*^9, 3.943432182478854*^9}, {3.943432234790433*^9, 
+   3.943432235212377*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"11e0cca6-0587-4092-a89c-780095b4322c"]
+},
+WindowSize->{1715, 911},
+WindowMargins->{{Automatic, 62}, {11, Automatic}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"845eb03b-2b49-4e06-94af-28eaed9b9c6c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ChatGeneratedCell"->{
+  Cell[554, 20, 208, 4, 29, "Input",ExpressionUUID->"2dc3347b-760b-4006-a06d-fd56b84162d8",
+   CellTags->"ChatGeneratedCell"],
+  Cell[765, 26, 19928, 431, 1765, "Input",ExpressionUUID->"c80b2686-3054-4142-ae78-a1041724166e",
+   CellTags->"ChatGeneratedCell"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ChatGeneratedCell", 22342, 499}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 208, 4, 29, "Input",ExpressionUUID->"2dc3347b-760b-4006-a06d-fd56b84162d8",
+ CellTags->"ChatGeneratedCell"],
+Cell[765, 26, 19928, 431, 1765, "Input",ExpressionUUID->"c80b2686-3054-4142-ae78-a1041724166e",
+ CellTags->"ChatGeneratedCell"],
+Cell[20696, 459, 1289, 27, 90, "Input",ExpressionUUID->"11e0cca6-0587-4092-a89c-780095b4322c"]
+}
+]
+*)
+

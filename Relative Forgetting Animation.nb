@@ -1,0 +1,363 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     14447,        355]
+NotebookOptionsPosition[     13353,        326]
+NotebookOutlinePosition[     14203,        352]
+CellTagsIndexPosition[     14123,        347]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Define", " ", "constants"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Lambda]", "=", "0.05"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Decay", " ", "constant"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"timeDuration", "=", "50"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Total", " ", "time", " ", "duration"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"numInitialEvents", "=", "200"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Initial", " ", "number", " ", "of", " ", "events"}], " ", "*)"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"queueCapacity", "=", "5000"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Capacity", " ", "of", " ", "the", " ", "priority", " ", "queue"}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"newEventsPerStep", "=", "500"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Number", " ", "of", " ", "new", " ", "events", " ", "introduced", " ", 
+     "per", " ", "time", " ", "step"}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Generate", " ", "initial", " ", "truth", " ", "values", " ", "and", " ", 
+     "neuron", " ", "activations", " ", "for", " ", "events"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"RandomSeed", "[", "123", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"truthValues", "=", 
+     RowBox[{"RandomReal", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}], ",", "numInitialEvents"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"neuronActivations", "=", 
+     RowBox[{"RandomReal", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}], ",", "numInitialEvents"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Define", " ", "expectation", " ", "and", " ", "priority", " ", 
+     "functions"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"expectation", "[", "f_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"0.5", "*", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "f"}], ")"}]}], "+", "0.5"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"priority", "[", 
+      RowBox[{"f_", ",", "activation_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"expectation", "[", "f", "]"}], "*", "activation"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Calculate", " ", "initial", " ", "priorities"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"initialPriorities", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"priority", "[", 
+        RowBox[{
+         RowBox[{"truthValues", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", 
+         RowBox[{"neuronActivations", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "numInitialEvents"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Simulate", " ", "priority", " ", "decay", " ", "over", " ", "time"}], 
+    " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"decayFunction", "[", 
+      RowBox[{"p_", ",", "t_"}], "]"}], ":=", 
+     RowBox[{"p", "*", 
+      RowBox[{"Exp", "[", 
+       RowBox[{
+        RowBox[{"-", "\[Lambda]"}], "*", "t"}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"timeSteps", "=", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", "timeDuration", ",", "0.1"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Priority", " ", "queue", " ", "simulation", " ", "with", " ", 
+     "continuous", " ", "event", " ", "flow", " ", "and", " ", "capturing", 
+     " ", "states"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"queueStates", "=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", "  ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "queue", ",", "eventPriority", ",", "newTruthValues", ",", 
+         "newNeuronActivations", ",", "newPriorities", ",", 
+         RowBox[{"states", "=", 
+          RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", "  ", 
+       RowBox[{
+        RowBox[{"queue", "=", "initialPriorities"}], ";", 
+        "\[IndentingNewLine]", "  ", 
+        RowBox[{"Do", "[", "\[IndentingNewLine]", "   ", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+          "Decay", " ", "priorities", " ", "at", " ", "each", " ", "time", 
+           " ", "step"}], " ", "*)"}], "\[IndentingNewLine]", "   ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"queue", "=", 
+            RowBox[{"decayFunction", "[", 
+             RowBox[{"queue", ",", "0.1"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", "   ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "Introduce", " ", "new", " ", "events", " ", "at", " ", "each", 
+             " ", "time", " ", "step"}], " ", "*)"}], "\[IndentingNewLine]", 
+           "   ", 
+           RowBox[{"newTruthValues", "=", 
+            RowBox[{"RandomReal", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}], ",", "newEventsPerStep"}], 
+             "]"}]}], ";", "\[IndentingNewLine]", "   ", 
+           RowBox[{"newNeuronActivations", "=", 
+            RowBox[{"RandomReal", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}], ",", "newEventsPerStep"}], 
+             "]"}]}], ";", "\[IndentingNewLine]", "   ", 
+           RowBox[{"newPriorities", "=", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"priority", "[", 
+               RowBox[{
+                RowBox[{"newTruthValues", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], ",", 
+                RowBox[{"newNeuronActivations", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "newEventsPerStep"}], "}"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", "   ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "Add", " ", "new", " ", "events", " ", "to", " ", "the", " ", 
+             "queue", " ", "and", " ", "maintain", " ", "capacity"}], " ", 
+            "*)"}], "\[IndentingNewLine]", "   ", 
+           RowBox[{"queue", "=", 
+            RowBox[{"SortBy", "[", 
+             RowBox[{
+              RowBox[{"Join", "[", 
+               RowBox[{"queue", ",", "newPriorities"}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"-", "#"}], " ", "&"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "   ", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "queue", "]"}], ">", "queueCapacity"}], 
+             ",", 
+             RowBox[{"queue", "=", 
+              RowBox[{"Take", "[", 
+               RowBox[{"queue", ",", "queueCapacity"}], "]"}]}]}], "]"}], ";",
+            "\[IndentingNewLine]", "\[IndentingNewLine]", "   ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Capture", " ", "the", " ", "state"}], " ", "*)"}], 
+           "\[IndentingNewLine]", "   ", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"states", ",", "queue"}], "]"}], ";"}], 
+          "\[IndentingNewLine]", "   ", ",", "\[IndentingNewLine]", "   ", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{"Length", "[", "timeSteps", "]"}]}], "}"}]}], 
+         "\[IndentingNewLine]", "   ", "]"}], ";", "\[IndentingNewLine]", 
+        "  ", "states"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Create", " ", "an", " ", "animation", " ", "of", " ", "the", " ", 
+     "queue", " ", "states", " ", "with", " ", "lowest", " ", "priority", " ",
+      "threshold", " ", "line"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"animation", "=", 
+     RowBox[{"ListAnimate", "[", "\[IndentingNewLine]", "  ", 
+      RowBox[{"Table", "[", "\[IndentingNewLine]", "    ", 
+       RowBox[{
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"lowestPriorityThreshold", "=", 
+            RowBox[{"Min", "[", 
+             RowBox[{"queueStates", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}], ",", 
+          "\[IndentingNewLine]", "      ", 
+          RowBox[{"ListPlot", "[", 
+           RowBox[{
+            RowBox[{"queueStates", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "queueCapacity"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", "       ", 
+            RowBox[{"PlotStyle", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"PointSize", "[", "Small", "]"}], ",", 
+               RowBox[{"GrayLevel", "[", "0.5", "]"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", "       ", 
+            RowBox[{"PlotLabel", "->", 
+             RowBox[{
+             "\"\<Relative Forgetting (Priority Distribution at t=\>\"", " ", 
+              "<>", " ", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"N", "[", 
+                RowBox[{"timeSteps", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], " ", "<>", 
+              " ", "\"\<)\>\""}]}], ",", "\[IndentingNewLine]", "       ", 
+            RowBox[{"AxesLabel", "->", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Event\>\"", ",", "\"\<Priority\>\""}], "}"}]}], 
+            ",", "\[IndentingNewLine]", "       ", 
+            RowBox[{"LabelStyle", "->", 
+             RowBox[{"{", 
+              RowBox[{"FontSize", "->", "14"}], "}"}]}], ",", 
+            "\[IndentingNewLine]", "       ", 
+            RowBox[{"Epilog", "->", 
+             RowBox[{"{", "\[IndentingNewLine]", "         ", 
+              RowBox[{
+               RowBox[{"GrayLevel", "[", "0.2", "]"}], ",", "Dashed", ",", 
+               "Thick", ",", "\[IndentingNewLine]", "         ", 
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "lowestPriorityThreshold"}], "}"}], ",", 
+                  
+                  RowBox[{"{", 
+                   RowBox[{"queueCapacity", ",", "lowestPriorityThreshold"}], 
+                   "}"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+               "         ", 
+               RowBox[{"Text", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<Threshold\>\"", ",", 
+                   RowBox[{"GrayLevel", "[", "0.3", "]"}], ",", 
+                   RowBox[{"FontSize", "->", "12"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", "          ", 
+                 RowBox[{"{", 
+                  RowBox[{"2500", ",", 
+                   RowBox[{"lowestPriorityThreshold", "-", "0.04"}]}], "}"}], 
+                 ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "]"}]}], 
+              "\[IndentingNewLine]", "       ", "}"}]}]}], 
+           "\[IndentingNewLine]", "      ", "]"}]}], "\[IndentingNewLine]", 
+         "    ", "]"}], ",", "\[IndentingNewLine]", "    ", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", 
+          RowBox[{"Length", "[", "queueStates", "]"}]}], "}"}]}], 
+       "\[IndentingNewLine]", "  ", "]"}], "\[IndentingNewLine]", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Display", " ", "the", " ", "animation"}], " ", "*)"}], 
+   "\[IndentingNewLine]", "animation"}]}]], "Input",
+ CellChangeTimes->{{3.943542955267964*^9, 3.943542955896038*^9}},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"ceaefab8-ff36-4640-9a36-a9a61f7491d2"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943950800836198*^9, 3.943950801813829*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"2b168733-ef8a-424a-b02a-914e20bd93f9"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943510170012259*^9, 3.943510170816928*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"6a0eb4a2-74b9-4296-ba11-420cc44b2b42"]
+},
+WindowSize->{904, 973},
+WindowMargins->{{1119, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e1d72362-bc72-4c35-b8cc-72c6647eae91"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ChatGeneratedCell"->{
+  Cell[554, 20, 12425, 294, 1500, "Input",ExpressionUUID->"ceaefab8-ff36-4640-9a36-a9a61f7491d2",
+   CellTags->"ChatGeneratedCell"],
+  Cell[12982, 316, 182, 3, 29, "Input",ExpressionUUID->"2b168733-ef8a-424a-b02a-914e20bd93f9",
+   CellTags->"ChatGeneratedCell"],
+  Cell[13167, 321, 182, 3, 29, "Input",ExpressionUUID->"6a0eb4a2-74b9-4296-ba11-420cc44b2b42",
+   CellTags->"ChatGeneratedCell"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ChatGeneratedCell", 13706, 337}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 12425, 294, 1500, "Input",ExpressionUUID->"ceaefab8-ff36-4640-9a36-a9a61f7491d2",
+ CellTags->"ChatGeneratedCell"],
+Cell[12982, 316, 182, 3, 29, "Input",ExpressionUUID->"2b168733-ef8a-424a-b02a-914e20bd93f9",
+ CellTags->"ChatGeneratedCell"],
+Cell[13167, 321, 182, 3, 29, "Input",ExpressionUUID->"6a0eb4a2-74b9-4296-ba11-420cc44b2b42",
+ CellTags->"ChatGeneratedCell"]
+}
+]
+*)
+

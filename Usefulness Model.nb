@@ -1,0 +1,891 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     40045,        883]
+NotebookOptionsPosition[     29172,        701]
+NotebookOutlinePosition[     35013,        804]
+CellTagsIndexPosition[     34933,        799]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Define", " ", "a", " ", "Node", " ", "structure"}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\t", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "Node", "]"}], ";"}], "\[IndentingNewLine]", 
+   "\t", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Node", "[", 
+      RowBox[{"useCount_", ",", "lastUsed_", ",", "currentCycle_"}], "]"}], ":=", 
+     RowBox[{"<|", "\[IndentingNewLine]", "\t  ", 
+      RowBox[{
+       RowBox[{"\"\<UseCount\>\"", "->", "useCount"}], ",", 
+       "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"\"\<LastUsed\>\"", "->", "lastUsed"}], ",", 
+       "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"\"\<Recency\>\"", "->", 
+        RowBox[{"Max", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"currentCycle", "-", "lastUsed"}]}], "]"}]}], ",", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "Ensure", " ", "recency", " ", "is", " ", "at", " ", "least", " ", 
+         "1"}], " ", "*)"}], "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"\"\<UsefulnessToNormalise\>\"", "->", 
+        RowBox[{"useCount", "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Max", "[", 
+            RowBox[{"0", ",", 
+             RowBox[{"currentCycle", "-", "lastUsed"}]}], "]"}], "+", "1"}], 
+          ")"}]}]}], ",", "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"\"\<Usefulness\>\"", "->", 
+        RowBox[{"With", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"u", "=", 
+            RowBox[{"useCount", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"Max", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"currentCycle", "-", "lastUsed"}]}], "]"}], "+", 
+               "1"}], ")"}]}]}], "}"}], ",", "\[IndentingNewLine]", "\t    ", 
+          
+          RowBox[{"u", "/", 
+           RowBox[{"(", 
+            RowBox[{"u", "+", "1"}], ")"}]}]}], "\[IndentingNewLine]", "\t  ",
+          "]"}]}]}], "\[IndentingNewLine]", "\t", "|>"}]}], ";"}], 
+   "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Initialize", " ", "the", " ", "queue", " ", "as", " ", "a", " ", "list", 
+     " ", "of", " ", "associations"}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\t", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", 
+     RowBox[{"nodeQueue", ",", "nodeQueueHistory"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"nodeQueue", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"nodeQueueHistory", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", "\t", 
+   "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Simulation", " ", "settings"}], " ", "*)"}], 
+   "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"capacityLimit", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
+   "\t", 
+   RowBox[{
+    RowBox[{"currentCycle", "=", "1000"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Initialize", " ", "currentCycle", " ", "to", " ", "1000"}], " ", 
+    "*)"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"numberOfNewNodes", "=", "200"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Number", " ", "of", " ", "nodes", " ", "to", " ", "add", " ", "per", " ",
+      "cycle"}], " ", "*)"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"accessProbability", "=", "0.1"}], ";"}], " ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Probability", " ", "that", " ", "a", " ", "node", " ", "in", " ", "the", 
+     " ", "queue", " ", "is", " ", "accessed", " ", "per", " ", "cycle"}], 
+    " ", "*)"}], "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Function", " ", "to", " ", "generate", " ", "random", " ", "nodes", " ", 
+     "with", " ", "a", " ", "random", " ", "initial", " ", "useCount", " ", 
+     "and", " ", "lastUsed"}], " ", "*)"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GenerateRandomNodes", "[", 
+      RowBox[{"currentCycle_", ",", "numNodes_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"useCount", ",", "lastUsed"}], "}"}], ",", 
+       "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", "\t    ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"useCount", "=", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "500"}], "}"}], "]"}]}], ";", " ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "Random", " ", "initial", " ", "useCount", " ", "between", " ", 
+            "1", " ", "and", " ", "10"}], " ", "*)"}], "\[IndentingNewLine]", 
+          "\t    ", 
+          RowBox[{"lastUsed", "=", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1000"}], "}"}], "]"}]}], ";", " ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "Random", " ", "lastUsed", " ", "between", " ", "1", " ", "and", 
+            " ", "1000"}], " ", "*)"}], "\[IndentingNewLine]", "\t    ", 
+          RowBox[{"Node", "[", 
+           RowBox[{"useCount", ",", "lastUsed", ",", "currentCycle"}], 
+           "]"}]}], ",", "\[IndentingNewLine]", "\t    ", 
+         RowBox[{"{", "numNodes", "}"}]}], "\[IndentingNewLine]", "\t  ", 
+        "]"}]}], "\[IndentingNewLine]", "\t", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Function", " ", "to", " ", "randomly", " ", "access", " ", "nodes", " ", 
+     "in", " ", "the", " ", "queue"}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\t", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"AccessNodesInQueue", "[", "queue_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "updatedQueue", "}"}], ",", "\[IndentingNewLine]", "\t  ", 
+       RowBox[{
+        RowBox[{"updatedQueue", "=", "queue"}], ";", "\[IndentingNewLine]", 
+        "\t  ", 
+        RowBox[{"updatedQueue", "=", 
+         RowBox[{"updatedQueue", " ", "/.", " ", 
+          RowBox[{"node_Association", ":>", 
+           RowBox[{"(", "\[IndentingNewLine]", "\t    ", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"RandomReal", "[", "]"}], "<", "accessProbability"}], 
+              ",", "\[IndentingNewLine]", "\t      ", 
+              RowBox[{"Node", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"node", "[", 
+                  RowBox[{"[", "\"\<UseCount\>\"", "]"}], "]"}], "+", "1"}], 
+                ",", "currentCycle", ",", "currentCycle"}], "]"}], ",", 
+              RowBox[{"(*", " ", 
+               RowBox[{
+               "Update", " ", "useCount", " ", "and", " ", "lastUsed"}], " ", 
+               "*)"}], "\[IndentingNewLine]", "\t      ", "node"}], 
+             "\[IndentingNewLine]", "\t    ", "]"}], "\[IndentingNewLine]", 
+            "\t  ", ")"}]}]}]}], ";", "\[IndentingNewLine]", "\t  ", 
+        "updatedQueue"}]}], "\[IndentingNewLine]", "\t", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Function", " ", "to", " ", "simulate", " ", "a", " ", "cycle"}], 
+    " ", "*)"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SimulateCycle", "[", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"allNodes", ",", "updatedQueue", ",", "newNodes"}], "}"}], 
+       ",", "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "Randomly", " ", "access", " ", "nodes", " ", "in", " ", "the", " ", 
+         "queue"}], " ", "*)"}], "\[IndentingNewLine]", "\t  ", 
+       RowBox[{
+        RowBox[{"updatedQueue", "=", 
+         RowBox[{"AccessNodesInQueue", "[", "nodeQueue", "]"}]}], ";", 
+        "\[IndentingNewLine]", "\t  ", "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Recalculate", " ", "usefulness", " ", "for", " ", "all", " ", 
+          "nodes", " ", "in", " ", "the", " ", "queue"}], " ", "*)"}], 
+        "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"updatedQueue", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Node", "[", 
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", "\"\<UseCount\>\"", "]"}], "]"}], ",", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "\"\<LastUsed\>\"", "]"}], "]"}], ",", 
+             "currentCycle"}], "]"}], " ", "&"}], " ", "/@", " ", 
+          "updatedQueue"}]}], ";", "\[IndentingNewLine]", "\t  ", 
+        "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Generate", " ", "new", " ", "nodes", " ", "for", " ", "this", " ", 
+          "cycle"}], " ", "*)"}], "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"newNodes", "=", 
+         RowBox[{"GenerateRandomNodes", "[", 
+          RowBox[{"currentCycle", ",", "numberOfNewNodes"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\t  ", "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Combine", " ", "new", " ", "nodes", " ", "with", " ", "the", " ", 
+          "updated", " ", "queue"}], " ", "*)"}], "\[IndentingNewLine]", 
+        "\t  ", 
+        RowBox[{"allNodes", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{"updatedQueue", ",", "newNodes"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\t  ", "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Sort", " ", "all", " ", "nodes", " ", "by", " ", "usefulness", " ", 
+          "and", " ", "keep", " ", "only", " ", "the", " ", "top", " ", 
+          "ones", " ", "within", " ", "the", " ", "capacity", " ", "limit"}], 
+         " ", "*)"}], "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"nodeQueue", "=", 
+         RowBox[{"Take", "[", 
+          RowBox[{
+           RowBox[{"SortBy", "[", 
+            RowBox[{"allNodes", ",", 
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"#", "[", "\"\<Usefulness\>\"", "]"}]}], " ", "&"}]}], 
+            "]"}], ",", 
+           RowBox[{"UpTo", "[", "capacityLimit", "]"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\t  ", "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Store", " ", "the", " ", "current", " ", "state", " ", "of", " ", 
+          "the", " ", "node", " ", "queue", " ", "for", " ", "animation"}], 
+         " ", "*)"}], "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"nodeQueueHistory", ",", "nodeQueue"}], "]"}], ";", 
+        "\[IndentingNewLine]", "\t  ", "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Increment", " ", "current", " ", "cycle", " ", "at", " ", "the", 
+          " ", "end", " ", "of", " ", "the", " ", "cycle"}], " ", "*)"}], 
+        "\[IndentingNewLine]", "\t  ", 
+        RowBox[{"currentCycle", "++"}], ";"}]}], "\[IndentingNewLine]", "\t", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", 
+   "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Function", " ", "to", " ", "simulate", " ", "multiple", " ", "cycles"}], 
+    " ", "*)"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"SimulateMultipleCycles", "[", "numCycles_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", "\t  ", 
+       RowBox[{
+        RowBox[{"Do", "[", "\[IndentingNewLine]", "\t    ", 
+         RowBox[{
+          RowBox[{"SimulateCycle", "[", "]"}], ",", "\[IndentingNewLine]", 
+          "\t    ", 
+          RowBox[{"{", "numCycles", "}"}]}], "\[IndentingNewLine]", "\t  ", 
+         "]"}], ";"}]}], "\[IndentingNewLine]", "\t", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Example", " ", "usage"}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\t", 
+   RowBox[{
+    RowBox[{"SimulateMultipleCycles", "[", "30", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Function", " ", "to", " ", "compute", " ", "point", " ", "sizes", " ", 
+     "based", " ", "on", " ", "frequency"}], " ", "*)"}], 
+   "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"computePointSizes", "[", "nodes_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"counts", ",", "sizes"}], "}"}], ",", "\[IndentingNewLine]", 
+      "\t  ", 
+      RowBox[{
+       RowBox[{"counts", "=", 
+        RowBox[{"Tally", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", "\"\<UseCount\>\"", "]"}], "]"}], ",", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", "\"\<Recency\>\"", "]"}], "]"}]}], "}"}], " ", 
+           "&"}], " ", "/@", " ", "nodes"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\t  ", 
+       RowBox[{"sizes", "=", 
+        RowBox[{"Association", "[", 
+         RowBox[{"Rule", " ", "@@@", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "->", 
+              RowBox[{"PointSize", "[", 
+               RowBox[{"0.02", "+", 
+                RowBox[{"0.2", " ", 
+                 RowBox[{"#", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}]}], " ", "&"}], 
+            " ", "/@", " ", "counts"}], ")"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\t  ", "sizes"}]}], "\[IndentingNewLine]", 
+     "\t", "]"}]}], "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Calculate", " ", "point", " ", "sizes", " ", "for", " ", "the", " ", 
+     "final", " ", "frame"}], " ", "*)"}], "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"finalPointSizes", "=", 
+     RowBox[{"computePointSizes", "[", 
+      RowBox[{"Last", "[", "nodeQueueHistory", "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Create", " ", "animated", " ", "plot"}], " ", "*)"}], 
+   "\[IndentingNewLine]", "\t", 
+   RowBox[{
+    RowBox[{"frames", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"ListPlot", "[", "\[IndentingNewLine]", "\t    ", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Style", "[", "\[IndentingNewLine]", "\t      ", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "\"\<UseCount\>\"", "]"}], "]"}], ",", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "\"\<Recency\>\"", "]"}], "]"}]}], "}"}], ",", 
+              "\[IndentingNewLine]", "\t      ", 
+              RowBox[{"Lookup", "[", 
+               RowBox[{"finalPointSizes", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "\"\<UseCount\>\"", "]"}], "]"}], ",", 
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "\"\<Recency\>\"", "]"}], "]"}]}], "}"}], ",", 
+                RowBox[{"PointSize", "[", "0.02", "]"}]}], "]"}], ",", 
+              "\[IndentingNewLine]", "\t      ", 
+              RowBox[{"GrayLevel", "[", "0.2", "]"}], ",", 
+              "\[IndentingNewLine]", "\t      ", 
+              RowBox[{"EdgeForm", "[", 
+               RowBox[{"GrayLevel", "[", "0", "]"}], "]"}]}], 
+             "\[IndentingNewLine]", "\t    ", "]"}], " ", "&"}], " ", "/@", 
+           " ", "#"}], "}"}], ",", "\[IndentingNewLine]", "\t    ", 
+         RowBox[{"PlotRange", "->", "All"}], ",", "\[IndentingNewLine]", 
+         "\t    ", 
+         RowBox[{"AxesLabel", "->", 
+          RowBox[{"{", 
+           RowBox[{"\"\<UseCount\>\"", ",", "\"\<Recency\>\""}], "}"}]}], ",",
+          "\[IndentingNewLine]", "\t    ", 
+         RowBox[{"Background", "->", 
+          RowBox[{"GrayLevel", "[", "0.9", "]"}]}]}], "\[IndentingNewLine]", 
+        "\t  ", "]"}], " ", "&"}], " ", "/@", " ", "nodeQueueHistory"}]}], 
+    ";"}], "\[IndentingNewLine]", "\t", "\[IndentingNewLine]", "\t", 
+   RowBox[{"ListAnimate", "[", "frames", "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"firstFramePlot", "=", 
+     RowBox[{"ListPlot", "[", "\[IndentingNewLine]", "   ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Style", "[", "\[IndentingNewLine]", "     ", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"#", "[", "\"\<UseCount\>\"", "]"}], ",", 
+              RowBox[{"#", "[", "\"\<Recency\>\"", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", "     ", 
+            RowBox[{"Lookup", "[", 
+             RowBox[{"finalPointSizes", ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"#", "[", "\"\<UseCount\>\"", "]"}], ",", 
+                RowBox[{"#", "[", "\"\<Recency\>\"", "]"}]}], "}"}], ",", 
+              RowBox[{"PointSize", "[", "0.015", "]"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", "     ", 
+            RowBox[{"GrayLevel", "[", "0.2", "]"}], ",", 
+            "\[IndentingNewLine]", "     ", 
+            RowBox[{"EdgeForm", "[", 
+             RowBox[{"GrayLevel", "[", "0", "]"}], "]"}]}], 
+           "\[IndentingNewLine]", "   ", "]"}], " ", "&"}], " ", "/@", " ", 
+         RowBox[{"First", "[", "nodeQueueHistory", "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"PlotRange", "->", "All"}], ",", "\[IndentingNewLine]", "   ", 
+       
+       RowBox[{"AxesLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{"\"\<UseCount\>\"", ",", "\"\<Recency\>\""}], "}"}]}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"PlotLabel", "->", "\"\<First Cycle\>\""}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"FontSize", "->", "12"}], "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "firstFramePlot", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalFrame", "=", 
+     RowBox[{"ListPlot", "[", "\[IndentingNewLine]", "   ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Style", "[", "\[IndentingNewLine]", "     ", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"#", "[", "\"\<UseCount\>\"", "]"}], ",", 
+              RowBox[{"#", "[", "\"\<Recency\>\"", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", "     ", 
+            RowBox[{"Lookup", "[", 
+             RowBox[{"finalPointSizes", ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"#", "[", "\"\<UseCount\>\"", "]"}], ",", 
+                RowBox[{"#", "[", "\"\<Recency\>\"", "]"}]}], "}"}], ",", 
+              RowBox[{"PointSize", "[", "0.015", "]"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", "     ", 
+            RowBox[{"GrayLevel", "[", "0.2", "]"}], ",", 
+            "\[IndentingNewLine]", "     ", 
+            RowBox[{"EdgeForm", "[", 
+             RowBox[{"GrayLevel", "[", "0", "]"}], "]"}]}], 
+           "\[IndentingNewLine]", "   ", "]"}], " ", "&"}], " ", "/@", " ", 
+         RowBox[{"Last", "[", "nodeQueueHistory", "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"PlotRange", "->", "All"}], ",", "\[IndentingNewLine]", "   ", 
+       
+       RowBox[{"AxesLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{"\"\<UseCount\>\"", ",", "\"\<Recency\>\""}], "}"}]}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"PlotLabel", "->", "\"\<Final Cycle\>\""}], ",", 
+       "\[IndentingNewLine]", "   ", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"FontSize", "->", "12"}], "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Show", "[", "finalFrame", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9434918461860847`*^9, 3.9434918539832*^9}, {
+   3.9434918862045918`*^9, 3.943491922403146*^9}, {3.943491969099052*^9, 
+   3.943491974630373*^9}, {3.943492010184026*^9, 3.943492010526157*^9}, {
+   3.943492054779368*^9, 3.943492056130365*^9}, {3.9434921070399523`*^9, 
+   3.9434921073224497`*^9}, {3.9434921522783747`*^9, 
+   3.9434921762844057`*^9}, {3.943492933876791*^9, 3.9434929355528584`*^9}, 
+   3.943492979070991*^9, {3.943493019334297*^9, 3.943493019870736*^9}, {
+   3.943493072132691*^9, 3.943493091632038*^9}, 3.943493242062914*^9, 
+   3.9434932839951878`*^9, {3.943493400366415*^9, 3.9434934017502937`*^9}},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[50]:=",ExpressionUUID->"c00416ec-2c85-44b6-9900-e27dc4c67eb3"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943950867265605*^9, 3.943950867386798*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"880764a4-c807-4d46-b9d8-4da2659c94b5"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9439508665486727`*^9, 3.943950866553431*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"84d55725-5b71-48f8-88e4-fb7aeb4c1253"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943950864462409*^9, 3.9439508644710627`*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"44b10b5f-73ad-40dc-873d-1fd5f41d5195"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493360750882*^9, 3.943493360876843*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"090fff73-0c17-4043-8c72-8cf3a3b687f2"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9439508621863537`*^9, 3.943950862198007*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"c545ed89-8dfe-4393-a874-219a10f8aba3"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943950863412952*^9, 3.9439508634196663`*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"fccbe928-df6d-4868-b772-18fcc029ad13"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493288880562*^9, 3.9434932890024977`*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"2010645f-7397-4fbc-b517-ca7e9287020e"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434932897163897`*^9, 3.943493289718567*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"69278644-3a03-4c45-a8c7-efcae7717da3"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493290572833*^9, 3.943493290591017*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"b03d2ed8-d290-4d81-b465-6a083f58c218"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493160524006*^9, 3.943493160645775*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"721be4ba-e890-4bbe-8162-7b76a4086e95"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434931616005507`*^9, 3.943493161602828*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"5a45ef85-bd51-4328-9b89-b6dccf435d44"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493162508296*^9, 3.943493162522069*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"ef51a523-fca1-4c3b-af29-279bce4c60f7"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493095287511*^9, 3.943493095397257*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"d16038bf-0a98-4190-9df9-3152965e817c"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493096058346*^9, 3.943493096060443*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"25268f0e-e14b-4ae2-8942-d0565830a1d3"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434930966641693`*^9, 3.943493096669566*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"02e1758f-1396-4f63-84f1-bc3401ae2f09"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434930420813627`*^9, 3.943493042161437*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"1acb1593-114b-46f9-b76c-19f443953d30"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943493043367778*^9, 3.943493043369725*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"ab990ed9-5d0e-47f4-b97a-b18ad7bebc93"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434930445953608`*^9, 3.943493044598983*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"a9e6b412-a730-4235-b1d9-597acaba12cf"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492940814372*^9, 3.9434929409061203`*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"5f0f250b-3556-4af5-a76a-d870f7556d7b"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492941699003*^9, 3.94349294170533*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"8d794c83-b265-4f68-8237-db5addab6dab"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434922324068813`*^9, 3.943492232505403*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"0cb1b587-0fb1-4325-991d-a15b8e8ad448"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492233349464*^9, 3.94349223338485*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"01eee0d3-ab48-4509-a0e3-d61620993227"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.94349217920158*^9, 3.943492179311907*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"b3ad4d0d-2cc2-4440-a0c2-a103c51e01d3"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434921801407213`*^9, 3.943492180157569*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"f72aef6d-04bd-497b-8fcd-880bae645d23"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492156820229*^9, 3.943492156929245*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"8fa490b0-65ed-4d76-901a-3259d66feb55"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492158096031*^9, 3.943492158131453*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"bab254a4-b21f-41a8-94a1-9d021136677b"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434921114004087`*^9, 3.943492111573657*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"78b604db-1865-4f93-aa91-e55a1102fd2e"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.94349211222427*^9, 3.943492112237836*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"2b338ade-4295-424f-b36a-6ffa4561b80f"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492065994939*^9, 3.943492066171873*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"e55a7e1d-a7ab-4784-8274-001365c30ffd"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492067098792*^9, 3.9434920671123257`*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"354d2748-688c-41de-8f62-9a875fe053c0"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492014139587*^9, 3.943492014248268*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"5e1699fe-c7e2-4eeb-8101-144bffd1d3b1"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943492014852744*^9, 3.943492014865032*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"41959459-e2e4-48de-9a91-20bab0a2537a"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491978603677*^9, 3.943491978735778*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"35c4c47b-b419-42c2-b233-42691a23129b"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491980116026*^9, 3.943491980171266*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"787ec823-ac18-480c-a175-83d050fd0d72"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491907053104*^9, 3.9434919071425877`*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"fe255aae-4f21-41fc-8cea-5961ff30c71a"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491908221389*^9, 3.9434919082368*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"3ace5ce8-6ebd-4d17-ad37-66237ba7b099"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491891347488*^9, 3.943491891437045*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"92a8546c-cb2e-4f9a-93fb-89053deca9bc"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491892154579*^9, 3.94349189215959*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"f17c93f8-74f1-4d29-901f-07ae8e230a8c"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9434918597712803`*^9, 3.943491859849771*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"04943601-ddbc-4a03-9436-bf9fc74b7ce6"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.943491860582267*^9, 3.943491860589226*^9}},
+ CellTags->
+  "ChatGeneratedCell",ExpressionUUID->"8ed47ee9-19d0-49d9-bcb9-12aa6290a601"]
+},
+WindowSize->{1130, 911},
+WindowMargins->{{Automatic, 597}, {Automatic, 37}},
+TaggingRules-><|"ChatNotebookSettings" -> <||>|>,
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"331be3f8-7b06-43fe-a5b4-2e369a3c9100"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ChatGeneratedCell"->{
+  Cell[554, 20, 21187, 479, 2746, "Input",ExpressionUUID->"c00416ec-2c85-44b6-9900-e27dc4c67eb3",
+   CellTags->"ChatGeneratedCell"],
+  Cell[21744, 501, 182, 3, 29, "Input",ExpressionUUID->"880764a4-c807-4d46-b9d8-4da2659c94b5",
+   CellTags->"ChatGeneratedCell"],
+  Cell[21929, 506, 184, 3, 29, "Input",ExpressionUUID->"84d55725-5b71-48f8-88e4-fb7aeb4c1253",
+   CellTags->"ChatGeneratedCell"],
+  Cell[22116, 511, 184, 3, 29, "Input",ExpressionUUID->"44b10b5f-73ad-40dc-873d-1fd5f41d5195",
+   CellTags->"ChatGeneratedCell"],
+  Cell[22303, 516, 182, 3, 29, "Input",ExpressionUUID->"090fff73-0c17-4043-8c72-8cf3a3b687f2",
+   CellTags->"ChatGeneratedCell"],
+  Cell[22488, 521, 184, 3, 29, "Input",ExpressionUUID->"c545ed89-8dfe-4393-a874-219a10f8aba3",
+   CellTags->"ChatGeneratedCell"],
+  Cell[22675, 526, 184, 3, 29, "Input",ExpressionUUID->"fccbe928-df6d-4868-b772-18fcc029ad13",
+   CellTags->"ChatGeneratedCell"],
+  Cell[22862, 531, 184, 3, 29, "Input",ExpressionUUID->"2010645f-7397-4fbc-b517-ca7e9287020e",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23049, 536, 184, 3, 29, "Input",ExpressionUUID->"69278644-3a03-4c45-a8c7-efcae7717da3",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23236, 541, 182, 3, 29, "Input",ExpressionUUID->"b03d2ed8-d290-4d81-b465-6a083f58c218",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23421, 546, 182, 3, 29, "Input",ExpressionUUID->"721be4ba-e890-4bbe-8162-7b76a4086e95",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23606, 551, 184, 3, 29, "Input",ExpressionUUID->"5a45ef85-bd51-4328-9b89-b6dccf435d44",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23793, 556, 182, 3, 29, "Input",ExpressionUUID->"ef51a523-fca1-4c3b-af29-279bce4c60f7",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23978, 561, 182, 3, 29, "Input",ExpressionUUID->"d16038bf-0a98-4190-9df9-3152965e817c",
+   CellTags->"ChatGeneratedCell"],
+  Cell[24163, 566, 182, 3, 29, "Input",ExpressionUUID->"25268f0e-e14b-4ae2-8942-d0565830a1d3",
+   CellTags->"ChatGeneratedCell"],
+  Cell[24348, 571, 184, 3, 29, "Input",ExpressionUUID->"02e1758f-1396-4f63-84f1-bc3401ae2f09",
+   CellTags->"ChatGeneratedCell"],
+  Cell[24535, 576, 184, 3, 29, "Input",ExpressionUUID->"1acb1593-114b-46f9-b76c-19f443953d30",
+   CellTags->"ChatGeneratedCell"],
+  Cell[24722, 581, 182, 3, 29, "Input",ExpressionUUID->"ab990ed9-5d0e-47f4-b97a-b18ad7bebc93",
+   CellTags->"ChatGeneratedCell"],
+  Cell[24907, 586, 184, 3, 29, "Input",ExpressionUUID->"a9e6b412-a730-4235-b1d9-597acaba12cf",
+   CellTags->"ChatGeneratedCell"],
+  Cell[25094, 591, 184, 3, 29, "Input",ExpressionUUID->"5f0f250b-3556-4af5-a76a-d870f7556d7b",
+   CellTags->"ChatGeneratedCell"],
+  Cell[25281, 596, 181, 3, 29, "Input",ExpressionUUID->"8d794c83-b265-4f68-8237-db5addab6dab",
+   CellTags->"ChatGeneratedCell"],
+  Cell[25465, 601, 184, 3, 29, "Input",ExpressionUUID->"0cb1b587-0fb1-4325-991d-a15b8e8ad448",
+   CellTags->"ChatGeneratedCell"],
+  Cell[25652, 606, 181, 3, 29, "Input",ExpressionUUID->"01eee0d3-ab48-4509-a0e3-d61620993227",
+   CellTags->"ChatGeneratedCell"],
+  Cell[25836, 611, 181, 3, 29, "Input",ExpressionUUID->"b3ad4d0d-2cc2-4440-a0c2-a103c51e01d3",
+   CellTags->"ChatGeneratedCell"],
+  Cell[26020, 616, 184, 3, 29, "Input",ExpressionUUID->"f72aef6d-04bd-497b-8fcd-880bae645d23",
+   CellTags->"ChatGeneratedCell"],
+  Cell[26207, 621, 182, 3, 29, "Input",ExpressionUUID->"8fa490b0-65ed-4d76-901a-3259d66feb55",
+   CellTags->"ChatGeneratedCell"],
+  Cell[26392, 626, 182, 3, 29, "Input",ExpressionUUID->"bab254a4-b21f-41a8-94a1-9d021136677b",
+   CellTags->"ChatGeneratedCell"],
+  Cell[26577, 631, 184, 3, 29, "Input",ExpressionUUID->"78b604db-1865-4f93-aa91-e55a1102fd2e",
+   CellTags->"ChatGeneratedCell"],
+  Cell[26764, 636, 181, 3, 29, "Input",ExpressionUUID->"2b338ade-4295-424f-b36a-6ffa4561b80f",
+   CellTags->"ChatGeneratedCell"],
+  Cell[26948, 641, 182, 3, 29, "Input",ExpressionUUID->"e55a7e1d-a7ab-4784-8274-001365c30ffd",
+   CellTags->"ChatGeneratedCell"],
+  Cell[27133, 646, 184, 3, 29, "Input",ExpressionUUID->"354d2748-688c-41de-8f62-9a875fe053c0",
+   CellTags->"ChatGeneratedCell"],
+  Cell[27320, 651, 182, 3, 29, "Input",ExpressionUUID->"5e1699fe-c7e2-4eeb-8101-144bffd1d3b1",
+   CellTags->"ChatGeneratedCell"],
+  Cell[27505, 656, 182, 3, 29, "Input",ExpressionUUID->"41959459-e2e4-48de-9a91-20bab0a2537a",
+   CellTags->"ChatGeneratedCell"],
+  Cell[27690, 661, 182, 3, 29, "Input",ExpressionUUID->"35c4c47b-b419-42c2-b233-42691a23129b",
+   CellTags->"ChatGeneratedCell"],
+  Cell[27875, 666, 182, 3, 29, "Input",ExpressionUUID->"787ec823-ac18-480c-a175-83d050fd0d72",
+   CellTags->"ChatGeneratedCell"],
+  Cell[28060, 671, 184, 3, 29, "Input",ExpressionUUID->"fe255aae-4f21-41fc-8cea-5961ff30c71a",
+   CellTags->"ChatGeneratedCell"],
+  Cell[28247, 676, 180, 3, 29, "Input",ExpressionUUID->"3ace5ce8-6ebd-4d17-ad37-66237ba7b099",
+   CellTags->"ChatGeneratedCell"],
+  Cell[28430, 681, 182, 3, 29, "Input",ExpressionUUID->"92a8546c-cb2e-4f9a-93fb-89053deca9bc",
+   CellTags->"ChatGeneratedCell"],
+  Cell[28615, 686, 181, 3, 29, "Input",ExpressionUUID->"f17c93f8-74f1-4d29-901f-07ae8e230a8c",
+   CellTags->"ChatGeneratedCell"],
+  Cell[28799, 691, 184, 3, 29, "Input",ExpressionUUID->"04943601-ddbc-4a03-9436-bf9fc74b7ce6",
+   CellTags->"ChatGeneratedCell"],
+  Cell[28986, 696, 182, 3, 29, "Input",ExpressionUUID->"8ed47ee9-19d0-49d9-bcb9-12aa6290a601",
+   CellTags->"ChatGeneratedCell"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ChatGeneratedCell", 29576, 713}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 21187, 479, 2746, "Input",ExpressionUUID->"c00416ec-2c85-44b6-9900-e27dc4c67eb3",
+ CellTags->"ChatGeneratedCell"],
+Cell[21744, 501, 182, 3, 29, "Input",ExpressionUUID->"880764a4-c807-4d46-b9d8-4da2659c94b5",
+ CellTags->"ChatGeneratedCell"],
+Cell[21929, 506, 184, 3, 29, "Input",ExpressionUUID->"84d55725-5b71-48f8-88e4-fb7aeb4c1253",
+ CellTags->"ChatGeneratedCell"],
+Cell[22116, 511, 184, 3, 29, "Input",ExpressionUUID->"44b10b5f-73ad-40dc-873d-1fd5f41d5195",
+ CellTags->"ChatGeneratedCell"],
+Cell[22303, 516, 182, 3, 29, "Input",ExpressionUUID->"090fff73-0c17-4043-8c72-8cf3a3b687f2",
+ CellTags->"ChatGeneratedCell"],
+Cell[22488, 521, 184, 3, 29, "Input",ExpressionUUID->"c545ed89-8dfe-4393-a874-219a10f8aba3",
+ CellTags->"ChatGeneratedCell"],
+Cell[22675, 526, 184, 3, 29, "Input",ExpressionUUID->"fccbe928-df6d-4868-b772-18fcc029ad13",
+ CellTags->"ChatGeneratedCell"],
+Cell[22862, 531, 184, 3, 29, "Input",ExpressionUUID->"2010645f-7397-4fbc-b517-ca7e9287020e",
+ CellTags->"ChatGeneratedCell"],
+Cell[23049, 536, 184, 3, 29, "Input",ExpressionUUID->"69278644-3a03-4c45-a8c7-efcae7717da3",
+ CellTags->"ChatGeneratedCell"],
+Cell[23236, 541, 182, 3, 29, "Input",ExpressionUUID->"b03d2ed8-d290-4d81-b465-6a083f58c218",
+ CellTags->"ChatGeneratedCell"],
+Cell[23421, 546, 182, 3, 29, "Input",ExpressionUUID->"721be4ba-e890-4bbe-8162-7b76a4086e95",
+ CellTags->"ChatGeneratedCell"],
+Cell[23606, 551, 184, 3, 29, "Input",ExpressionUUID->"5a45ef85-bd51-4328-9b89-b6dccf435d44",
+ CellTags->"ChatGeneratedCell"],
+Cell[23793, 556, 182, 3, 29, "Input",ExpressionUUID->"ef51a523-fca1-4c3b-af29-279bce4c60f7",
+ CellTags->"ChatGeneratedCell"],
+Cell[23978, 561, 182, 3, 29, "Input",ExpressionUUID->"d16038bf-0a98-4190-9df9-3152965e817c",
+ CellTags->"ChatGeneratedCell"],
+Cell[24163, 566, 182, 3, 29, "Input",ExpressionUUID->"25268f0e-e14b-4ae2-8942-d0565830a1d3",
+ CellTags->"ChatGeneratedCell"],
+Cell[24348, 571, 184, 3, 29, "Input",ExpressionUUID->"02e1758f-1396-4f63-84f1-bc3401ae2f09",
+ CellTags->"ChatGeneratedCell"],
+Cell[24535, 576, 184, 3, 29, "Input",ExpressionUUID->"1acb1593-114b-46f9-b76c-19f443953d30",
+ CellTags->"ChatGeneratedCell"],
+Cell[24722, 581, 182, 3, 29, "Input",ExpressionUUID->"ab990ed9-5d0e-47f4-b97a-b18ad7bebc93",
+ CellTags->"ChatGeneratedCell"],
+Cell[24907, 586, 184, 3, 29, "Input",ExpressionUUID->"a9e6b412-a730-4235-b1d9-597acaba12cf",
+ CellTags->"ChatGeneratedCell"],
+Cell[25094, 591, 184, 3, 29, "Input",ExpressionUUID->"5f0f250b-3556-4af5-a76a-d870f7556d7b",
+ CellTags->"ChatGeneratedCell"],
+Cell[25281, 596, 181, 3, 29, "Input",ExpressionUUID->"8d794c83-b265-4f68-8237-db5addab6dab",
+ CellTags->"ChatGeneratedCell"],
+Cell[25465, 601, 184, 3, 29, "Input",ExpressionUUID->"0cb1b587-0fb1-4325-991d-a15b8e8ad448",
+ CellTags->"ChatGeneratedCell"],
+Cell[25652, 606, 181, 3, 29, "Input",ExpressionUUID->"01eee0d3-ab48-4509-a0e3-d61620993227",
+ CellTags->"ChatGeneratedCell"],
+Cell[25836, 611, 181, 3, 29, "Input",ExpressionUUID->"b3ad4d0d-2cc2-4440-a0c2-a103c51e01d3",
+ CellTags->"ChatGeneratedCell"],
+Cell[26020, 616, 184, 3, 29, "Input",ExpressionUUID->"f72aef6d-04bd-497b-8fcd-880bae645d23",
+ CellTags->"ChatGeneratedCell"],
+Cell[26207, 621, 182, 3, 29, "Input",ExpressionUUID->"8fa490b0-65ed-4d76-901a-3259d66feb55",
+ CellTags->"ChatGeneratedCell"],
+Cell[26392, 626, 182, 3, 29, "Input",ExpressionUUID->"bab254a4-b21f-41a8-94a1-9d021136677b",
+ CellTags->"ChatGeneratedCell"],
+Cell[26577, 631, 184, 3, 29, "Input",ExpressionUUID->"78b604db-1865-4f93-aa91-e55a1102fd2e",
+ CellTags->"ChatGeneratedCell"],
+Cell[26764, 636, 181, 3, 29, "Input",ExpressionUUID->"2b338ade-4295-424f-b36a-6ffa4561b80f",
+ CellTags->"ChatGeneratedCell"],
+Cell[26948, 641, 182, 3, 29, "Input",ExpressionUUID->"e55a7e1d-a7ab-4784-8274-001365c30ffd",
+ CellTags->"ChatGeneratedCell"],
+Cell[27133, 646, 184, 3, 29, "Input",ExpressionUUID->"354d2748-688c-41de-8f62-9a875fe053c0",
+ CellTags->"ChatGeneratedCell"],
+Cell[27320, 651, 182, 3, 29, "Input",ExpressionUUID->"5e1699fe-c7e2-4eeb-8101-144bffd1d3b1",
+ CellTags->"ChatGeneratedCell"],
+Cell[27505, 656, 182, 3, 29, "Input",ExpressionUUID->"41959459-e2e4-48de-9a91-20bab0a2537a",
+ CellTags->"ChatGeneratedCell"],
+Cell[27690, 661, 182, 3, 29, "Input",ExpressionUUID->"35c4c47b-b419-42c2-b233-42691a23129b",
+ CellTags->"ChatGeneratedCell"],
+Cell[27875, 666, 182, 3, 29, "Input",ExpressionUUID->"787ec823-ac18-480c-a175-83d050fd0d72",
+ CellTags->"ChatGeneratedCell"],
+Cell[28060, 671, 184, 3, 29, "Input",ExpressionUUID->"fe255aae-4f21-41fc-8cea-5961ff30c71a",
+ CellTags->"ChatGeneratedCell"],
+Cell[28247, 676, 180, 3, 29, "Input",ExpressionUUID->"3ace5ce8-6ebd-4d17-ad37-66237ba7b099",
+ CellTags->"ChatGeneratedCell"],
+Cell[28430, 681, 182, 3, 29, "Input",ExpressionUUID->"92a8546c-cb2e-4f9a-93fb-89053deca9bc",
+ CellTags->"ChatGeneratedCell"],
+Cell[28615, 686, 181, 3, 29, "Input",ExpressionUUID->"f17c93f8-74f1-4d29-901f-07ae8e230a8c",
+ CellTags->"ChatGeneratedCell"],
+Cell[28799, 691, 184, 3, 29, "Input",ExpressionUUID->"04943601-ddbc-4a03-9436-bf9fc74b7ce6",
+ CellTags->"ChatGeneratedCell"],
+Cell[28986, 696, 182, 3, 29, "Input",ExpressionUUID->"8ed47ee9-19d0-49d9-bcb9-12aa6290a601",
+ CellTags->"ChatGeneratedCell"]
+}
+]
+*)
+
